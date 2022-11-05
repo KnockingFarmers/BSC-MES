@@ -1,0 +1,37 @@
+#服务端口
+server:
+  port: 8301
+
+#服务名
+spring:
+  application:
+    name: service-material
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  #json的全局时间各种
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  #环境配置：dev test prod
+  profiles:
+    active: dev
+
+  #MySQL数据库连接
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bsc_material?uesSSL=true&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password:
+
+
+mybatis-plus:
+  configuration:
+    #mybatis日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

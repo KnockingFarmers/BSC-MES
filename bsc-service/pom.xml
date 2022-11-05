@@ -9,7 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service</artifactId>
+    <artifactId>bsc-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>production-management</module>
+        <module>material-management</module>
+    </modules>
 
     <dependencies>
     <!--数据载体-->
