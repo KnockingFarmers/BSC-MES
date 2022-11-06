@@ -2,6 +2,7 @@ package com.github.ganlong.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description: 数据源配置
  * @Version 1.0
  */
+@Data
 @Configuration
 @ConfigurationProperties(prefix = "generator.data-source")
 public class DataSourceConfiguration {

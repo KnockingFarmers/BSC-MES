@@ -5,18 +5,18 @@ generator:
     open: false
     fileOverride: false
     serviceName: %sService
-    idType:
+    idType: 1
     dateType:
-    swagger2:
+    swagger2: false
 
   package:
     name:
-      modelName: 模块名
-      parent: 父文件
-      controller: 控制层
-      service: 业务层
-      serviceImpl: 业务实现层
+      modelName: material-management
+      parent: D:\My-Java-Project\BSC总成MES\BSC-MES\bsc-service\material-management\src\main\java
+      controller: controller
+      service: service
+      serviceImpl: impl
       mapper: mapper
-      xml: mybatis生成xml文件夹
+      xml: xml
       entity: 实体
 

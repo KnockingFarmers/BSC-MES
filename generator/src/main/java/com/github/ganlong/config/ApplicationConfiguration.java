@@ -3,6 +3,7 @@ package com.github.ganlong.config;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description: 全局配置
  * @Version 1.0
  */
+@Data
 @Configuration
 @ConfigurationProperties(prefix = "generator.application")
 public class ApplicationConfiguration {
@@ -52,7 +54,7 @@ public class ApplicationConfiguration {
     /**
      * 日期类型格式
      */
-    private DateType dateType;
+    private DateType dateType=DateType.ONLY_DATE;
 
     /**
      * 是否开启swagger2

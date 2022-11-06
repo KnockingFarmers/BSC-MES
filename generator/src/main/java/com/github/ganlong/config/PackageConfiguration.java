@@ -1,6 +1,7 @@
 package com.github.ganlong.config;
 
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description: 包生成配置
  * @Version 1.0
  */
+@Data
 @Configuration
 @ConfigurationProperties(prefix = "generator.package.name")
 public class PackageConfiguration {
