@@ -6,7 +6,7 @@ generator:
     fileOverride: false
     serviceName: %sService
     idType: 1
-    dateType:
+    dateType: MYSQL
     swagger2: false
 
   package:
@@ -18,5 +18,5 @@ generator:
       serviceImpl: impl
       mapper: mapper
       xml: xml
-      entity: 实体
+      entity: entity
 

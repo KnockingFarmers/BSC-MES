@@ -41,19 +41,40 @@ public class DataSourceConfiguration {
     private String driverName;
 
     /**
-     *数据库类型
+     * 数据库类型
      */
-    private DbType dbType;
+    private String dbType;
 
     @Bean
-    public DataSourceConfig dataSourceConfig(){
+    public DataSourceConfig dataSourceConfig() {
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl(url);
-        dsc.setDbType(dbType);
+        dsc.setDbType(userSetDbType(dbType));
         dsc.setDriverName(driverName);
         dsc.setUsername(userName);
         dsc.setPassword(password);
 
         return dsc;
+    }
+
+    public DbType userSetDbType(String value) {
+        switch (value) {
+            case "MARIADB":return  DbType.MARIADB;
+            case "ORACLE":return  DbType.ORACLE;
+            case "ORACLE_12C":return  DbType.ORACLE_12C;
+            case "DB2":return  DbType.DB2;
+            case "H2":return  DbType.H2;
+            case "HSQL":return  DbType.HSQL;
+            case "SQLITE":return  DbType.SQLITE;
+            case "POSTGRE_SQL":return  DbType.POSTGRE_SQL;
+            case "SQL_SERVER2005":return  DbType.SQL_SERVER2005;
+            case "SQL_SERVER":return  DbType.SQL_SERVER;
+            case "DM":return  DbType.DM;
+            case "XU_GU":return  DbType.XU_GU;
+            case "KINGBASE_ES":return  DbType.KINGBASE_ES;
+            case "PHOENIX":return  DbType.PHOENIX;
+            case "OTHER":return  DbType.OTHER;
+            default:return DbType.MYSQL;
+        }
     }
 }
