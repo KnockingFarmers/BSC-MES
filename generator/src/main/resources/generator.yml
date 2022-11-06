@@ -1,6 +1,6 @@
 generator:
   application:
-    outputDir:
+    outputDir: D:\My-Java-Project\BSC总成MES\BSC-MES\bsc-service\material-management\src\main\java
     author: ganlong
     open: false
     fileOverride: false
@@ -12,7 +12,7 @@ generator:
   package:
     name:
       modelName: material-management
-      parent: D:\My-Java-Project\BSC总成MES\BSC-MES\bsc-service\material-management\src\main\java
+      parent: com.github.ganlong
       controller: controller
       service: service
       serviceImpl: impl
