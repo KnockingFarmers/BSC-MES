@@ -1,0 +1,22 @@
+generator:
+  application:
+    outputDir:
+    author: ganlong
+    open: false
+    fileOverride: false
+    serviceName: %sService
+    idType:
+    dateType:
+    swagger2:
+
+  package:
+    name:
+      modelName: 模块名
+      parent: 父文件
+      controller: 控制层
+      service: 业务层
+      serviceImpl: 业务实现层
+      mapper: mapper
+      xml: mybatis生成xml文件夹
+      entity: 实体
+
