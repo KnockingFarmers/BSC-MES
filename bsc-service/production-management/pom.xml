@@ -11,6 +11,13 @@
 
     <artifactId>production-management</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.bsc_mes</groupId>
+            <artifactId>bsc-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
+    </dependencies>
 
 </project>

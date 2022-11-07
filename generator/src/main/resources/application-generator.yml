@@ -2,7 +2,7 @@ generator:
 
 #全局配置
   application:
-    outputDir: D:\My-Java-Project\BSC总成MES\BSC-MES\bsc-service\material-management\src\main\java
+    outputDir: D:\My-Java-Project\BSC总成MES\BSC-MES\bsc-service\production-management\src\main\java
     author: ganlong
     open: false
     fileOverride: false
@@ -14,7 +14,7 @@ generator:
 #包配置
   package:
     name:
-      modelName: material-management
+      modelName: production-management
       parent: com.github.ganlong
       controller: controller
       service: service
@@ -25,7 +25,10 @@ generator:
 
 #策略配置
   strategy:
-    superEntityClass:
+    superEntityClass: com.github.ganlong.model.base.BaseEntity
     entityLombokModel: true
     restControllerStyle: true
+    superEntityColumns: id
+    include: order
+    tablePrefix: production_
 
