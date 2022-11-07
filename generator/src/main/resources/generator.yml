@@ -1,4 +1,6 @@
 generator:
+
+#全局配置
   application:
     outputDir: D:\My-Java-Project\BSC总成MES\BSC-MES\bsc-service\material-management\src\main\java
     author: ganlong
@@ -9,6 +11,7 @@ generator:
     dateType: MYSQL
     swagger2: false
 
+#包配置
   package:
     name:
       modelName: material-management
@@ -19,4 +22,10 @@ generator:
       mapper: mapper
       xml: xml
       entity: entity
+
+#策略配置
+  strategy:
+    superEntityClass:
+    entityLombokModel: true
+    restControllerStyle: true
 

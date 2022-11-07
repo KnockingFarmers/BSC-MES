@@ -1,6 +1,9 @@
 package com.github.ganlong.config;
 
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -15,5 +18,32 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("generator.strategy")
 public class StrategyConfiguration {
 
-    private
+    /**
+     * 设置实体父类
+     */
+    private String superEntityClass;
+
+    /**
+     * 是否使用Lombok
+     */
+    private boolean entityLombokModel;
+
+
+    /**
+     * 是否使用Rest风格
+     */
+    private boolean restControllerStyle;
+
+
+    @Bean
+    public StrategyConfig strategyConfig(){
+        StrategyConfig strategy = new StrategyConfig();
+        strategy.setNaming(NamingStrategy.underline_to_camel);
+        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+        strategy.setSuperEntityClass(superEntityClass);
+        strategy.setEntityLombokModel(entityLombokModel);
+        strategy.setRestControllerStyle(restControllerStyle);
+
+        return strategy;
+    }
 }
