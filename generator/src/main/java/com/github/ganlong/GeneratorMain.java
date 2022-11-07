@@ -118,7 +118,7 @@ public class GeneratorMain {
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
 
-        // 策略配置
+        // 策略配置StrategyConfiguration
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
