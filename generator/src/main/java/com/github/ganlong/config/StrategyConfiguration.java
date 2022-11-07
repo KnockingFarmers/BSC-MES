@@ -34,6 +34,21 @@ public class StrategyConfiguration {
      */
     private boolean restControllerStyle;
 
+    /**
+     * 写于父类中的公共字段
+     */
+    private String[] superEntityColumns;
+
+    /**
+     * 表名
+     */
+    private String[] include;
+
+    /**
+     * 需要过滤表的前缀
+     */
+    private String tablePrefix;
+
 
     @Bean
     public StrategyConfig strategyConfig(){
@@ -43,6 +58,10 @@ public class StrategyConfiguration {
         strategy.setSuperEntityClass(superEntityClass);
         strategy.setEntityLombokModel(entityLombokModel);
         strategy.setRestControllerStyle(restControllerStyle);
+        strategy.setSuperEntityColumns(superEntityColumns);
+        strategy.setInclude(include);
+        strategy.setControllerMappingHyphenStyle(true);
+        strategy.setTablePrefix(tablePrefix);
 
         return strategy;
     }

@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import com.github.ganlong.model.base.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,11 +123,10 @@ public class GeneratorMain {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
+        strategy.setSuperEntityClass("com.github.ganlong.model.base.BaseEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
-        // 公共父类
-        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
+
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
         strategy.setInclude("表名");
