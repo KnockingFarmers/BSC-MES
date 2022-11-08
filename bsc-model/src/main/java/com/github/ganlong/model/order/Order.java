@@ -1,5 +1,6 @@
 package com.github.ganlong.model.order;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.github.ganlong.model.base.BaseEntity;
 import lombok.Data;
@@ -25,49 +26,48 @@ public class Order extends BaseEntity {
 
     private static final long serialVersionUID=1L;
 
-    /**
-     * 创建时间
-     */
-    private Date gtmCreated;
 
     /**
      * 订单号
      */
+    @TableField("order_no")
     private Long orderNo;
 
-    /**
-     * 修改时间
-     */
-    private Date gmtModified;
 
     /**
      * 订单状态
      */
+    @TableField("status")
     private Integer status;
 
     /**
      * 责任人
      */
+    @TableField("responsible_person")
     private String responsiblePerson;
 
     /**
      * 下单金额
      */
+    @TableField("order_amount")
     private BigDecimal orderAmount;
 
     /**
      * 订单产品
      */
+    @TableField("order_product")
     private String orderProduct;
 
     /**
      * 下单数量
      */
+    @TableField("product_num")
     private Double productNum;
 
     /**
      * 客户id，外键
      */
+    @TableField("customer_id")
     private Long customerId;
 
 
