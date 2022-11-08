@@ -1,6 +1,9 @@
 package com.github.ganlong.config;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.core.incrementer.IKeyGenerator;
+import com.baomidou.mybatisplus.extension.incrementer.H2KeyGenerator;
+import com.baomidou.mybatisplus.extension.incrementer.OracleKeyGenerator;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import lombok.Data;
@@ -93,5 +96,10 @@ public class ApplicationConfiguration {
             case "ID_WORKER_STR":return IdType.ID_WORKER_STR;
             default:return IdType.AUTO;
         }
+    }
+
+    @Bean
+    public IKeyGenerator keyGenerator() {
+        return new OracleKeyGenerator();
     }
 }
