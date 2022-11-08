@@ -6,6 +6,8 @@ import com.github.ganlong.production.mapper.OrderMapper;
 import com.github.ganlong.production.service.OrderService;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * <p>
  * 生产管理订单表 服务实现类
@@ -16,5 +18,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
+
 
 }

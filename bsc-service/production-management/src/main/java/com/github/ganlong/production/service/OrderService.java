@@ -13,4 +13,5 @@ import com.github.ganlong.model.order.Order;
  */
 public interface OrderService extends IService<Order> {
 
+
 }

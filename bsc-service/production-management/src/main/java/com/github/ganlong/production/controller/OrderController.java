@@ -4,10 +4,9 @@ package com.github.ganlong.production.controller;
 import com.github.ganlong.model.order.Order;
 import com.github.ganlong.production.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -30,5 +29,19 @@ public class OrderController {
         return orderService.list();
     }
 
+    @PostMapping("/add")
+    public boolean addOrder(@NotNull Order order){
+        return orderService.save(order);
+    }
+
+    @DeleteMapping("/deleted")
+    public boolean deleteOrder(@NotNull String orderId){
+        return orderService.removeById(orderId);
+    }
+
+    @PutMapping("/update")
+    public boolean updateOrder(@NotNull Order order){
+        return orderService.updateById(order);
+    }
 }
 
