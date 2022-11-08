@@ -2,6 +2,7 @@ package com.github.ganlong.production.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.ganlong.model.order.Order;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.github.ganlong.model.order.Order;
  * @author ganlong
  * @since 2022-11-08
  */
+@Mapper
 public interface OrderMapper extends BaseMapper<Order> {
 
 }
