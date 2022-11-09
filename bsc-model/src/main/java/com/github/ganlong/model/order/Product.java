@@ -1,13 +1,13 @@
-package com.github.ganlong.production.entity;
+package com.github.ganlong.model.order;
 
-import com.github.ganlong.model.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.github.ganlong.model.base.BaseEntity;
+import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -23,6 +23,7 @@ import lombok.experimental.Accessors;
 @TableName("production_product")
 public class Product extends BaseEntity {
 
+    @Serialization
     private static final long serialVersionUID=1L;
 
     /**
@@ -35,15 +36,6 @@ public class Product extends BaseEntity {
      */
     private String currentStation;
 
-    /**
-     * 创建时间
-     */
-    private Date gmtCreate;
-
-    /**
-     * 更新时间
-     */
-    private Date gmtModified;
 
     /**
      * 所属订单
