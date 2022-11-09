@@ -3,6 +3,7 @@ package com.github.ganlong.model.order;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.github.ganlong.model.base.BaseEntity;
+import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -24,6 +25,7 @@ import java.util.Date;
 @TableName("production_order")
 public class Order extends BaseEntity {
 
+    @Serialization
     private static final long serialVersionUID=1L;
 
 

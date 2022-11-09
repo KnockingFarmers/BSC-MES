@@ -6,6 +6,7 @@ import com.github.ganlong.production.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -30,17 +31,17 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public boolean addOrder(@NotNull Order order){
+    public boolean addOrder(@NotNull(message = "订单对象不能为空") Order order){
         return orderService.save(order);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteOrder(@NotNull String orderId){
-        return orderService.removeById(orderId);
+    public boolean deleteOrder(@NotBlank(message = "id不能为空") String orderId){
+        return orderService.removeById(Long.valueOf(orderId));
     }
 
     @PutMapping("/update")
-    public boolean updateOrder(@NotNull Order order){
+    public boolean updateOrder(@NotNull(message = "订单对象不能为空") Order order){
         return orderService.updateById(order);
     }
 }
