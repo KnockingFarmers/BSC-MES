@@ -44,5 +44,10 @@ public class OrderController {
     public boolean updateOrder(@NotNull(message = "订单对象不能为空") Order order){
         return orderService.updateById(order);
     }
+
+    @GetMapping("/getOrderOkProduct")
+    public Long getOrderOkProduct(@NotBlank(message = "id不能为空") String orderId){
+        return orderService.queryOrderOkProductNum(Long.valueOf(orderId));
+    }
 }
 

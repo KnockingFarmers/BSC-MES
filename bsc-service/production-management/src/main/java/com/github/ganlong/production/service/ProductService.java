@@ -13,4 +13,5 @@ import com.github.ganlong.model.order.Product;
  */
 public interface ProductService extends IService<Product> {
 
+
 }

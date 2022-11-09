@@ -1,9 +1,11 @@
 package com.github.ganlong.production.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.ganlong.model.order.Order;
 import com.github.ganlong.production.mapper.OrderMapper;
 import com.github.ganlong.production.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
@@ -19,5 +21,17 @@ import javax.validation.constraints.NotNull;
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
 
+    @Autowired
+    OrderMapper orderMapper;
 
+    @Override
+    public Long queryOrderOkProductNum(Long orderId) {
+        QueryWrapper wrapper=new QueryWrapper();
+        wrapper.eq("id",orderId);
+        Integer count = orderMapper.selectCount(wrapper);
+        if (count!=0) {
+            return orderMapper.selectOrderOkProductNum(orderId);
+        }
+        return 0L;
+    }
 }

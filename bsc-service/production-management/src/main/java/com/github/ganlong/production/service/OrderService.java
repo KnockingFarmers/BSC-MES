@@ -13,5 +13,10 @@ import com.github.ganlong.model.order.Order;
  */
 public interface OrderService extends IService<Order> {
 
-
+    /**
+     * 查询单个订单下已产出产品的数量
+     * @param orderId 订单id
+     * @return 数量
+     */
+    Long queryOrderOkProductNum(Long orderId);
 }
