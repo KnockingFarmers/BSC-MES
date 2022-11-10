@@ -2,6 +2,9 @@ package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.ganlong.model.order.Order;
+import com.github.ganlong.model.order.Plan;
+
+import java.util.List;
 
 /**
  * <p>
@@ -19,4 +22,11 @@ public interface OrderService extends IService<Order> {
      * @return 数量
      */
     Long queryOrderOkProductNum(Long orderId);
+
+    /**
+     * 查询单个订单下的作业计划报表
+     * @param orderId 订单id
+     * @return 计划对象
+     */
+    Order queryOrderPlan(Long orderId);
 }

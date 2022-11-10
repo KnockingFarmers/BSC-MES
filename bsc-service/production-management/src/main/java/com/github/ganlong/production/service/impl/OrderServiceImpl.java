@@ -34,4 +34,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
         return 0L;
     }
+
+    @Override
+    public Order queryOrderPlan(Long orderId) {
+        QueryWrapper wrapper=new QueryWrapper();
+        wrapper.eq("id",orderId);
+        Integer count = orderMapper.selectCount(wrapper);
+        if (count!=0) {
+            return orderMapper.selectPlanByOrderId(orderId);
+        }
+        return new Order();
+    }
+
+
 }
