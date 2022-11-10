@@ -2,6 +2,7 @@ package com.github.ganlong.production.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.ganlong.commons.uitl.MapperUtil;
 import com.github.ganlong.model.order.Order;
 import com.github.ganlong.production.mapper.OrderMapper;
 import com.github.ganlong.production.service.OrderService;
@@ -26,9 +27,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Override
     public Long queryOrderOkProductNum(Long orderId) {
-        QueryWrapper wrapper=new QueryWrapper();
-        wrapper.eq("id",orderId);
-        Integer count = orderMapper.selectCount(wrapper);
+        MapperUtil<Order, OrderMapper> mapperUtil = new MapperUtil<>();
+        Integer count = mapperUtil.dataExists("id",orderId,orderMapper);
         if (count!=0) {
             return orderMapper.selectOrderOkProductNum(orderId);
         }
@@ -37,9 +37,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Override
     public Order queryOrderPlan(Long orderId) {
-        QueryWrapper wrapper=new QueryWrapper();
-        wrapper.eq("id",orderId);
-        Integer count = orderMapper.selectCount(wrapper);
+        MapperUtil<Order, OrderMapper> mapperUtil = new MapperUtil<>();
+        Integer count = mapperUtil.dataExists("id",orderId,orderMapper);
         if (count!=0) {
             return orderMapper.selectPlanByOrderId(orderId);
         }

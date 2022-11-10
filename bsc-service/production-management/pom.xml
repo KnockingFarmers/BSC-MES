@@ -47,6 +47,11 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.bsc_mes</groupId>
+            <artifactId>bsc-commons</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

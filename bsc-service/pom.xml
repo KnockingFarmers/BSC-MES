@@ -48,6 +48,12 @@
         <optional>true</optional>
     </dependency>
 
+        <dependency>
+            <groupId>com.github.bsc_mes</groupId>
+            <artifactId>bsc-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     <!--下面这仨暂时用不到，如果提前启用了会报错-->
     <!-- 服务注册 -->
     <!--<dependency>
