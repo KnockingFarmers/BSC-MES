@@ -26,7 +26,10 @@ public interface OrderService extends IService<Order> {
     /**
      * 查询单个订单下的作业计划报表
      * @param orderId 订单id
-     * @return 计划对象
+     * @return OrderDTO
      */
     Order queryOrderPlan(Long orderId);
+
+
+
 }

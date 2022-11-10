@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.ganlong.commons.uitl.MapperUtil;
 import com.github.ganlong.model.order.Order;
 import com.github.ganlong.production.mapper.OrderMapper;
+import com.github.ganlong.production.mapper.ProductMapper;
 import com.github.ganlong.production.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
         return new Order();
     }
+
+
 
 
 }

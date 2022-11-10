@@ -1,7 +1,6 @@
 package com.github.ganlong.production.controller;
 
 
-import com.github.ganlong.model.order.Order;
 import com.github.ganlong.model.order.Plan;
 import com.github.ganlong.production.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +43,6 @@ public class PlanController {
     public boolean updateOrder(@NotNull Plan plan){
         return planService.updateById(plan);
     }
+
 }
 

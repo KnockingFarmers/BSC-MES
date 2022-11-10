@@ -3,6 +3,7 @@
 <mapper namespace="com.github.ganlong.production.mapper.OrderMapper">
 
 
+
     <select id="selectOrderOkProductNum" resultType="java.lang.Long">
         SELECT done_num FROM production_plan p JOIN production_order o ON
             p.order_id=o.id WHERE p.order_id=#{orderId}
