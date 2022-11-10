@@ -43,5 +43,10 @@ public class ProductController {
     public boolean updateOrder(@NotNull Product product){
         return productService.updateById(product);
     }
+
+    @GetMapping("/queryProductLife")
+    public Product queryProductLife(String sn){
+        return productService.queryCycleLife(sn);
+    }
 }
 
