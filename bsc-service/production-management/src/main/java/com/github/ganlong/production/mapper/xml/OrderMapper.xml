@@ -13,7 +13,7 @@
         SELECT month_planned_num,
                day_planned_num,done_num,
                day_scrap_numexpected_month_planned_num
-        FROM production_plan p JOIN production_order o ON
+        FROM production_plan p LEFT JOIN production_order o ON
             p.order_id=o.id WHERE p.order_id=#{orderId}
     </select>
 
