@@ -40,6 +40,13 @@ public class BaseEntity implements Serializable {
     @TableField("deleted")
     private Integer Deleted;
 
+    @ApiModelProperty(value = "乐观锁版本号,默认1")
+    @JsonIgnore
+    @TableLogic
+    @TableField("version")
+    private Integer version;
+
+
     @ApiModelProperty(value = "其他参数")
     @TableField(exist = false)
     private Map<String,Object> param = new HashMap<>();
