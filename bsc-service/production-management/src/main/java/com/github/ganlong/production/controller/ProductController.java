@@ -45,8 +45,11 @@ public class ProductController {
     }
 
     @GetMapping("/queryProductLife")
-    public Product queryProductLife(String sn){
-        return productService.queryCycleLife(sn);
+    public Product queryProductLife(String id){
+        return productService.queryProductLife(Long.valueOf(id));
     }
+
+
+
 }
 

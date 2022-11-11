@@ -24,13 +24,14 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     private ProductMapper productMapper;
 
     @Override
-    public Product queryCycleLife(String sn) {
+    public Product queryProductLife(Long id) {
         Integer count = new MapperUtil<Product, ProductMapper>()
-                .dataExists("sn", sn,productMapper);
+                .dataExists("id", id,productMapper);
 
         if (count!=0){
             QueryWrapper wrapper = new QueryWrapper<>();
-            wrapper.eq("sn",sn);
+            wrapper.eq("id",id);
+            wrapper.select("station");
             return productMapper.selectOne(wrapper);
         }
         return new Product();

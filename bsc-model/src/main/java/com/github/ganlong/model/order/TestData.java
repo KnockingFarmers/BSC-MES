@@ -36,7 +36,7 @@ public class TestData extends BaseEntity {
     /**
      * 测试工站
      */
-    private String station;
+    private Integer station;
 
 
 }

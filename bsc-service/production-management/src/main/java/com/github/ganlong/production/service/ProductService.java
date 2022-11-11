@@ -15,9 +15,9 @@ public interface ProductService extends IService<Product> {
 
     /**
      * 查询产品生命周期
-     * @param sn sn
+     * @param id id
      * @return
      */
-    Product queryCycleLife(String sn);
+    Product queryProductLife(Long id);
 
 }

@@ -1,7 +1,6 @@
 package com.github.ganlong.production.controller;
 
 
-import com.github.ganlong.model.order.Product;
 import com.github.ganlong.model.order.TestData;
 import com.github.ganlong.production.service.TestDataService;
 import org.springframework.beans.factory.annotation.Autowired;
