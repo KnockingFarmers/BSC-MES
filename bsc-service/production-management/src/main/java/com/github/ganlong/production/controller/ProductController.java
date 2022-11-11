@@ -30,17 +30,17 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public boolean addOrder(@NotNull Product product){
+    public boolean addProduct(@NotNull Product product){
         return productService.save(product);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteOrder(@NotNull String productId){
+    public boolean deleteProduct(@NotNull String productId){
         return productService.removeById(productId);
     }
 
     @PutMapping("/update")
-    public boolean updateOrder(@NotNull Product product){
+    public boolean updateProduct(@NotNull Product product){
         return productService.updateById(product);
     }
 

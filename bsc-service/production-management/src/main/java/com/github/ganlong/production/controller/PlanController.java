@@ -35,12 +35,12 @@ public class PlanController {
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteOrder(@NotNull String planId){
+    public boolean deletePlan(@NotNull String planId){
         return planService.removeById(planId);
     }
 
     @PutMapping("/update")
-    public boolean updateOrder(@NotNull Plan plan){
+    public boolean updatePlan(@NotNull Plan plan){
         return planService.updateById(plan);
     }
 
