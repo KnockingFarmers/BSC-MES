@@ -1,7 +1,7 @@
 package com.github.ganlong.production.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.ganlong.model.order.SnLife;
+import com.github.ganlong.model.order.TestData;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,9 +10,9 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author ganlong
- * @since 2022-11-10
+ * @since 2022-11-11
  */
 @Mapper
-public interface SnLifeMapper extends BaseMapper<SnLife> {
+public interface TestDataMapper extends BaseMapper<TestData> {
 
 }

@@ -1,7 +1,7 @@
 package com.github.ganlong.production.service;
 
-import com.github.ganlong.production.entity.SnLife;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.ganlong.model.order.SnLife;
 
 /**
  * <p>

@@ -1,9 +1,9 @@
 package com.github.ganlong.production.service.impl;
 
-import com.github.ganlong.production.entity.SnLife;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.ganlong.model.order.SnLife;
 import com.github.ganlong.production.mapper.SnLifeMapper;
 import com.github.ganlong.production.service.SnLifeService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
