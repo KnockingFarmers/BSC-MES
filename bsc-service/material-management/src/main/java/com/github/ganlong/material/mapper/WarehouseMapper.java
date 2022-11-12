@@ -1,7 +1,7 @@
 package com.github.ganlong.material.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.ganlong.model.material.Material;
+import com.github.ganlong.model.material.Warehouse;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2022-11-11
  */
 @Mapper
-public interface MaterialMapper extends BaseMapper<Material> {
+public interface WarehouseMapper extends BaseMapper<Warehouse> {
 
 }

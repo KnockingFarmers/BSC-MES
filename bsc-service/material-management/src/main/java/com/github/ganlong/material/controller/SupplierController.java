@@ -1,9 +1,7 @@
 package com.github.ganlong.material.controller;
 
 
-import com.github.ganlong.material.service.MaterialService;
 import com.github.ganlong.material.service.SupplierService;
-import com.github.ganlong.model.material.Material;
 import com.github.ganlong.model.material.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

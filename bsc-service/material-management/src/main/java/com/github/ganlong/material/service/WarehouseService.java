@@ -1,7 +1,7 @@
 package com.github.ganlong.material.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.ganlong.model.material.Material;
+import com.github.ganlong.model.material.Warehouse;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.github.ganlong.model.material.Material;
  * @author ganlong
  * @since 2022-11-11
  */
-public interface MaterialService extends IService<Material> {
+public interface WarehouseService extends IService<Warehouse> {
 
 }

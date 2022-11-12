@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("material_material")
-public class Material extends BaseEntity {
+public class Warehouse extends BaseEntity {
 
     @Serialization
     private static final long serialVersionUID=1L;
