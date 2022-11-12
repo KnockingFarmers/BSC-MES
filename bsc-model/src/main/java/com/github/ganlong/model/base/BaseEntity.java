@@ -39,13 +39,11 @@ public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
     @JsonIgnore
-    @TableLogic
     @TableField("deleted")
     private Integer Deleted;
 
     @ApiModelProperty(value = "乐观锁版本号,默认1")
     @JsonIgnore
-    @TableLogic
     @TableField("version")
     private Integer version;
 
