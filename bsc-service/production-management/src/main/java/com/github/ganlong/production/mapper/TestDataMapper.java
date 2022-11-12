@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.ganlong.model.production.TestData;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口

@@ -13,4 +13,5 @@ import com.github.ganlong.model.material.Warehouse;
  */
 public interface WarehouseService extends IService<Warehouse> {
 
+
 }

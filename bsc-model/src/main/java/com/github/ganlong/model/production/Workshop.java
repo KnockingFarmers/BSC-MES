@@ -12,36 +12,30 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author ganlong
- * @since 2022-11-11
+ * @since 2022-11-12
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("production_test_data")
-public class TestData extends BaseEntity {
+@TableName("production_workshop")
+public class Workshop extends BaseEntity {
 
     private static final long serialVersionUID=1L;
 
+    /**
+     * 工作人员姓名
+     */
+    private String personnelName;
 
     /**
-     * 测试数据
+     * 工作人员权限 0最大 9最小
      */
-    private String testData;
+    private Integer personnelAuth;
 
     /**
-     * 产品id
+     * 车间状态，1生产中，0休息或维修中
      */
-    private Long productId;
-
-    /**
-     * 测试工站
-     */
-    private Integer station;
-
-    /**
-     * 测试物料
-     */
-    private Long materialId;
+    private Integer status;
 
 
 }

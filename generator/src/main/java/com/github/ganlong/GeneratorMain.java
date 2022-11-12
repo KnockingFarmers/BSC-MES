@@ -36,7 +36,7 @@ public class GeneratorMain {
         // 2、全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("u");
-        gc.setOutputDir("D:\\My-Java-Project\\BSC总成MES\\BSC-MES\\bsc-service\\material-management\\src\\main\\java");
+        gc.setOutputDir("D:\\My-Java-Project\\BSC总成MES\\BSC-MES\\bsc-service\\production-management\\src\\main\\java");
         gc.setAuthor("ganlong");
         gc.setOpen(false); //生成后是否打开资源管理器
         gc.setFileOverride(false); //重新生成时文件是否覆盖
@@ -49,7 +49,7 @@ public class GeneratorMain {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/bsc_material");
+        dsc.setUrl("jdbc:mysql://localhost:3306/bsc_production");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("");
@@ -58,7 +58,7 @@ public class GeneratorMain {
 
         // 4、包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("material"); //模块名
+        pc.setModuleName("production"); //模块名
         pc.setParent("com.github.ganlong");
         pc.setController("controller");
         pc.setEntity("entity");
@@ -75,7 +75,7 @@ public class GeneratorMain {
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
         strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
-        strategy.setInclude("material_material","material_warehouse");
+        strategy.setInclude("production_workshop");
         System.out.println(strategy.getTablePrefix()+""+strategy.getInclude());
         strategy.setRestControllerStyle(true); //restful api风格控制器
         strategy.setControllerMappingHyphenStyle(true); //url中驼峰转连字符
