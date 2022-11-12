@@ -12,6 +12,7 @@ spring:
       discovery:
         server-addr: localhost:8848
 
+
   #json的全局时间各种
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss

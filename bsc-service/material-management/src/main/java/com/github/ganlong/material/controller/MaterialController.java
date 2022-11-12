@@ -48,5 +48,10 @@ public class MaterialController {
         return materialService.updateById(material);
     }
 
+    @GetMapping("/findBindingMaterialByProductId")
+    public List<Material> findBindingMaterialByProductId(Long id){
+        return materialService.queryProductBindingMaterials(id);
+    }
+
 }
 
