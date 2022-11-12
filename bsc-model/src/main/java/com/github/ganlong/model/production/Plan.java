@@ -1,4 +1,4 @@
-package com.github.ganlong.model.order;
+package com.github.ganlong.model.production;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -6,8 +6,6 @@ import com.github.ganlong.model.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.util.Date;
 
 /**
  * <p>

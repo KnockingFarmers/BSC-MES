@@ -1,11 +1,14 @@
 package com.github.ganlong.production.controller;
 
 
-import com.github.ganlong.model.order.Product;
+import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
+import com.github.ganlong.model.production.Product;
 import com.github.ganlong.production.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -30,22 +33,22 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public boolean addProduct(@NotNull Product product){
+    public boolean addProduct(@Validated Product product){
         return productService.save(product);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteProduct(@NotNull String productId){
+    public boolean deleteProduct(@NotBlank String productId){
         return productService.removeById(productId);
     }
 
     @PutMapping("/update")
-    public boolean updateProduct(@NotNull Product product){
+    public boolean updateProduct(@Validated(UpdateGroup.class) Product product){
         return productService.updateById(product);
     }
 
     @GetMapping("/queryProductLife")
-    public Product queryProductLife(String id){
+    public Product queryProductLife(@NotBlank String id){
         return productService.queryProductLife(Long.valueOf(id));
     }
 

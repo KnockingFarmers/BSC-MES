@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bsc-commons</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -17,11 +18,13 @@
             <version>3.3.1</version>
             <scope>compile</scope>
         </dependency>
-    </dependencies>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>2.5.14</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

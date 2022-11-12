@@ -3,7 +3,6 @@ package com.github.ganlong.material.controller;
 
 import com.github.ganlong.material.service.MaterialService;
 import com.github.ganlong.model.material.Material;
-import com.github.ganlong.model.order.Plan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

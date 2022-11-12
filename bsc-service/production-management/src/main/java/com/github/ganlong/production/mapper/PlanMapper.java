@@ -1,10 +1,8 @@
 package com.github.ganlong.production.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.ganlong.model.order.Plan;
+import com.github.ganlong.model.production.Plan;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
 
 /**
  * <p>

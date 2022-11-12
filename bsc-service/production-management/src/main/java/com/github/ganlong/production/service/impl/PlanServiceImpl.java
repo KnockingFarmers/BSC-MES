@@ -1,7 +1,7 @@
 package com.github.ganlong.production.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.ganlong.model.order.Plan;
+import com.github.ganlong.model.production.Plan;
 import com.github.ganlong.production.mapper.PlanMapper;
 import com.github.ganlong.production.service.PlanService;
 import org.springframework.stereotype.Service;

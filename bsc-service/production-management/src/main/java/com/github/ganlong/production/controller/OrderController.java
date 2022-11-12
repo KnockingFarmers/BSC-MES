@@ -1,9 +1,11 @@
 package com.github.ganlong.production.controller;
 
 
-import com.github.ganlong.model.order.Order;
+import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
+import com.github.ganlong.model.production.Order;
 import com.github.ganlong.production.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
@@ -31,17 +33,17 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public boolean addOrder(@NotNull(message = "订单对象不能为空") Order order){
+    public boolean addOrder(@Validated Order order){
         return orderService.save(order);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteOrder(@NotBlank(message = "id不能为空") String orderId){
+    public boolean deleteOrder(@Validated String orderId){
         return orderService.removeById(Long.valueOf(orderId));
     }
 
     @PutMapping("/update")
-    public boolean updateOrder(@NotNull(message = "订单对象不能为空") Order order){
+    public boolean updateOrder(@Validated(UpdateGroup.class) Order order){
         return orderService.updateById(order);
     }
 

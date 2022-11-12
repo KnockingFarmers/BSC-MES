@@ -3,7 +3,7 @@ package com.github.ganlong.production.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.ganlong.commons.uitl.MapperUtil;
-import com.github.ganlong.model.order.TestData;
+import com.github.ganlong.model.production.TestData;
 import com.github.ganlong.production.mapper.TestDataMapper;
 import com.github.ganlong.production.service.TestDataService;
 import org.springframework.beans.factory.annotation.Autowired;

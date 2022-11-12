@@ -1,10 +1,7 @@
 package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.ganlong.model.order.Order;
-import com.github.ganlong.model.order.Plan;
-
-import java.util.List;
+import com.github.ganlong.model.production.Order;
 
 /**
  * <p>

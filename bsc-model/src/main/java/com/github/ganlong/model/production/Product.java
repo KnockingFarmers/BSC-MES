@@ -1,7 +1,8 @@
-package com.github.ganlong.model.order;
+package com.github.ganlong.model.production;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.github.ganlong.model.base.BaseEntity;
+import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -12,31 +13,33 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author ganlong
- * @since 2022-11-11
+ * @since 2022-11-09
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("production_test_data")
-public class TestData extends BaseEntity {
+@TableName("production_product")
+public class Product extends BaseEntity {
 
+    @Serialization
     private static final long serialVersionUID=1L;
 
+    /**
+     * SN
+     */
+    private String sn;
 
     /**
-     * 测试数据
+     * 当前工站
      */
-    private String testData;
+    private String currentStation;
+
 
     /**
-     * 产品id
+     * 所属订单
      */
-    private Long productId;
+    private Long orderId;
 
-    /**
-     * 测试工站
-     */
-    private Integer station;
 
 
 }

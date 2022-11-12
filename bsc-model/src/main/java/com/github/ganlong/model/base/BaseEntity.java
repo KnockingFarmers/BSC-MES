@@ -3,9 +3,11 @@ package com.github.ganlong.model.base;
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,6 +24,7 @@ public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "id")
     @TableId(type = IdType.INPUT)
+    @NotNull(groups = {UpdateGroup.class},message = "id 不能为空")
     private Long id;
 
     @ApiModelProperty(value = "创建时间")

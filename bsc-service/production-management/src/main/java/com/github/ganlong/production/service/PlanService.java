@@ -1,7 +1,7 @@
 package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.ganlong.model.order.Plan;
+import com.github.ganlong.model.production.Plan;
 
 /**
  * <p>

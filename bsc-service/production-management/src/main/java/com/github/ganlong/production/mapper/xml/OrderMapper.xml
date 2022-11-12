@@ -9,7 +9,7 @@
             p.order_id=o.id WHERE p.order_id=#{orderId}
     </select>
 
-    <select id="selectPlanByOrderId" resultType="com.github.ganlong.model.order.Order">
+    <select id="selectPlanByOrderId" resultType="com.github.ganlong.model.production.Order">
         SELECT month_planned_num,
                day_planned_num,done_num,
                day_scrap_numexpected_month_planned_num
