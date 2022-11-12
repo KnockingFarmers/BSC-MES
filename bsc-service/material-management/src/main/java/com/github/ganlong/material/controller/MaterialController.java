@@ -25,7 +25,7 @@ public class MaterialController {
     private MaterialService materialService;
 
     @GetMapping("/findAll")
-    public List<Material> findAllMaterialService(){
+    public List<Material> findAllMaterial(){
         return materialService.list();
     }
 
@@ -35,7 +35,7 @@ public class MaterialController {
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteOrder(@NotNull String materialId){
+    public boolean deleteMaterial(@NotNull String materialId){
         return materialService.removeById(Long.valueOf(materialId));
     }
 
