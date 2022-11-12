@@ -1,9 +1,11 @@
 package com.github.ganlong.material.controller;
 
 
+import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.material.service.WarehouseService;
 import com.github.ganlong.model.material.Warehouse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
@@ -40,7 +42,7 @@ public class WarehouseController {
     }
 
     @PutMapping("/update")
-    public boolean updateMaterial(@NotNull Warehouse warehouse){
+    public boolean updateMaterial(@Validated(UpdateGroup.class) Warehouse warehouse){
         return warehouseService.updateById(warehouse);
     }
 

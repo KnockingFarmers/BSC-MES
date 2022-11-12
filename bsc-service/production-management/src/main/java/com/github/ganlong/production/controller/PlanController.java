@@ -33,7 +33,7 @@ public class PlanController {
     }
 
     @PostMapping("/add")
-    public boolean addOrder(@Validated Plan plan){
+    public boolean addPlan(@Validated Plan plan){
         return planService.save(plan);
     }
 

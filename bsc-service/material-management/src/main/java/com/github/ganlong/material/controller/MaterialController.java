@@ -2,7 +2,9 @@ package com.github.ganlong.material.controller;
 
 
 import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
+import com.github.ganlong.material.service.MaterialService;
 import com.github.ganlong.material.service.SupplierService;
+import com.github.ganlong.model.material.Material;
 import com.github.ganlong.model.material.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -20,32 +22,31 @@ import java.util.List;
  * @since 2022-11-12
  */
 @RestController
-@RequestMapping("/material/supplier")
-public class SupplierController {
+@RequestMapping("/material/material")
+public class MaterialController {
 
     @Autowired
-    private SupplierService supplierService;
+    private MaterialService materialService;
 
     @GetMapping("/findAll")
-    public List<Supplier> findAllSupplier(){
-        return supplierService.list();
+    public List<Material> findAllMaterial(){
+        return materialService.list();
     }
 
     @PostMapping("/add")
-    public boolean addSupplier(@NotNull Supplier supplier){
-        return supplierService.save(supplier);
+    public boolean addMaterial(@NotNull Material material){
+        return materialService.save(material);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteSupplier(@NotNull String supplierId){
-        return supplierService.removeById(Long.valueOf(supplierId));
+    public boolean deleteMaterial(@NotNull String supplierId){
+        return materialService.removeById(Long.valueOf(supplierId));
     }
 
     @PutMapping("/update")
-    public boolean updateSupplier(@Validated(UpdateGroup.class) Supplier supplier){
-        return supplierService.updateById(supplier);
+    public boolean updateMaterial(@Validated(UpdateGroup.class) Material material){
+        return materialService.updateById(material);
     }
-
 
 }
 

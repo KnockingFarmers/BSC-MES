@@ -17,40 +17,30 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("material_warehouse")
-public class Warehouse extends BaseEntity {
+@TableName("material_material")
+public class Material extends BaseEntity {
 
     private static final long serialVersionUID=1L;
 
     /**
-     * 提供物料的供应商，外键id
-     */
-    private Long supplierId;
-
-    /**
-     * 物料状态, 1可使用，0冻结中
-     */
-    private Integer status;
-
-    /**
-     * 物料名
+     * 物料名称 供应商id+生产日期
      */
     private String materialName;
 
     /**
-     * 从仓库出口的数量
+     * 绑定产品
      */
-    private Long materialOutNum;
+    private Long productId;
 
     /**
-     * 已报废数量
+     * 物料状态，0存储中，1绑定中，3报废
      */
-    private Integer materialScrapNum;
+    private Integer status;
 
     /**
-     * 存储在几号仓库
+     * 仓库id，外键
      */
-    private Integer warehouseId;
+    private Long warehouseId;
 
 
 }
