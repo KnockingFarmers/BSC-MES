@@ -40,6 +40,7 @@
         <jodatime.version>2.10.1</jodatime.version>
         <jwt.version>0.7.0</jwt.version>
         <aliyun.oss.version>3.9.0</aliyun.oss.version>
+        <datasource.version>1.1.22</datasource.version>
     </properties>
 
     <!--配置dependencyManagement锁定依赖的版本-->
@@ -124,6 +125,11 @@
                 <version>${jodatime.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${datasource.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
