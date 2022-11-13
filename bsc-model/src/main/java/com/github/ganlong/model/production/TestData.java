@@ -43,5 +43,9 @@ public class TestData extends BaseEntity {
      */
     private Long materialId;
 
+    /**
+     * 测试线体
+     */
+    private Long lineId;
 
 }
