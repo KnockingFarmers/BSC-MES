@@ -46,5 +46,11 @@ public class LineController {
     public boolean updateLine(@Validated(UpdateGroup.class) Line line){
         return lineService.updateById(line);
     }
+
+    @GetMapping("/findLine")
+    public Line findLine(String workshopId,Integer lineNo){
+        return lineService.getLineReport(Long.valueOf(workshopId),lineNo);
+    }
+
 }
 
