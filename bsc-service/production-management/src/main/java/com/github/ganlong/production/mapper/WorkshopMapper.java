@@ -2,6 +2,7 @@ package com.github.ganlong.production.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.ganlong.model.production.Workshop;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.github.ganlong.model.production.Workshop;
  * @author ganlong
  * @since 2022-11-12
  */
+@Mapper
 public interface WorkshopMapper extends BaseMapper<Workshop> {
 
 }

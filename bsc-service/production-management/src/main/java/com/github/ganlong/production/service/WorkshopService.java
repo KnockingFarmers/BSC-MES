@@ -1,7 +1,10 @@
 package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.ganlong.model.production.Line;
 import com.github.ganlong.model.production.Workshop;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,6 @@ import com.github.ganlong.model.production.Workshop;
  * @since 2022-11-12
  */
 public interface WorkshopService extends IService<Workshop> {
+
 
 }
