@@ -75,7 +75,7 @@ public class GeneratorMain {
         strategy.setTablePrefix(pc.getModuleName() + "_"); //生成实体时去掉表前缀
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);//数据库表字段映射到实体的命名策略
         strategy.setEntityLombokModel(true); // lombok 模型 @Accessors(chain = true) setter链式操作
-        strategy.setInclude("production_workshop");
+        strategy.setInclude("production_line");
         System.out.println(strategy.getTablePrefix()+""+strategy.getInclude());
         strategy.setRestControllerStyle(true); //restful api风格控制器
         strategy.setControllerMappingHyphenStyle(true); //url中驼峰转连字符
