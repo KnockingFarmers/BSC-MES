@@ -1,7 +1,6 @@
 package com.github.ganlong.model.production;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.github.ganlong.enums.CurrentStation;
 import com.github.ganlong.model.base.BaseEntity;
 import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;

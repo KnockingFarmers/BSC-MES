@@ -5,7 +5,7 @@ server:
 #服务名
 spring:
   application:
-    name: bsc-production-management
+    name: production-management
     #nacos配置
   cloud:
     nacos:
