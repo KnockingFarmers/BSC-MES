@@ -41,6 +41,7 @@
         <jwt.version>0.7.0</jwt.version>
         <aliyun.oss.version>3.9.0</aliyun.oss.version>
         <datasource.version>1.1.22</datasource.version>
+        <redis.data.version>2.6.4</redis.data.version>
     </properties>
 
     <!--配置dependencyManagement锁定依赖的版本-->
@@ -118,6 +119,12 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${aliyun.oss.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${redis.data.version}</version>
             </dependency>
 
             <!--日期时间工具-->
