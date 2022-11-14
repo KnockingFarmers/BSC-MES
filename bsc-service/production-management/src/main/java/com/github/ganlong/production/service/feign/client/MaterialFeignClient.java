@@ -2,7 +2,10 @@ package com.github.ganlong.production.service.feign.client;
 
 import com.github.ganlong.model.material.Material;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -14,7 +17,8 @@ import java.util.List;
  * @Description: 调用 Material 服务
  * @Version 1.0
  */
-@FeignClient("service-material")
+@Component
+@FeignClient("material-management")
 public interface MaterialFeignClient {
 
     /**
@@ -23,8 +27,9 @@ public interface MaterialFeignClient {
      * @param okMaterial 是否只获取绑定物料
      * @return
      */
-    @GetMapping("/findMaterialByProductId")
-    List<Material> findMaterialByProductId(Long id,Integer okMaterial);
+    @GetMapping("/material/material/findMaterialByProductId")
+    List<Material> findMaterialByProductId(@RequestParam("id") Long id,
+                                           @RequestParam("okMaterial") Integer okMaterial);
 
 
 }

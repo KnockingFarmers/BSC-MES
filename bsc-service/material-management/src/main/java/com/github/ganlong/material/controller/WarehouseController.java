@@ -20,29 +20,29 @@ import java.util.List;
  * @since 2022-11-11
  */
 @RestController
-@RequestMapping("/material/material")
+@RequestMapping("/material/warehouse")
 public class WarehouseController {
 
     @Autowired
     private WarehouseService warehouseService;
 
     @GetMapping("/findAll")
-    public List<Warehouse> findAllMaterial(){
+    public List<Warehouse> findAllWarehouse(){
         return warehouseService.list();
     }
 
     @PostMapping("/add")
-    public boolean addMaterial(@NotNull Warehouse warehouse){
+    public boolean addWarehouse(@NotNull Warehouse warehouse){
         return warehouseService.save(warehouse);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteMaterial(@NotNull String warehouseId){
+    public boolean deleteWarehouse(@NotNull String warehouseId){
         return warehouseService.removeById(Long.valueOf(warehouseId));
     }
 
     @PutMapping("/update")
-    public boolean updateMaterial(@Validated(UpdateGroup.class) Warehouse warehouse){
+    public boolean updateWarehouse(@Validated(UpdateGroup.class) Warehouse warehouse){
         return warehouseService.updateById(warehouse);
     }
 

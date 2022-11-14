@@ -66,6 +66,5 @@ public class ProductController {
         return productService.modifiedProductStation(Long.valueOf(id),modifiedStation);
     }
 
-
 }
 
