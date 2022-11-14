@@ -27,4 +27,6 @@ public interface ProductService extends IService<Product> {
      * @return
      */
     Integer modifiedProductStation(Long id,Integer modifiedStation);
+
+
 }

@@ -2,4 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.ganlong.production.mapper.TestDataMapper">
 
+    <insert id="insertBatchColumn">
+        INSERT INTO production_test_data (
+        id,
+        gmt_created,
+        test_data,
+        product_id,
+        station,
+        material_id,
+        line_id
+        )
+        VALUES
+        <foreach collection="testDataList" item="item" separator=",">
+            (
+            #{item.id},
+            #{item.gmtCreated},
+            #{item.testData},
+            #{item.productId},
+            #{item.station},
+            #{materialId},
+            #{lineId},
+            )
+        </foreach>
+        (
+    </insert>
 </mapper>

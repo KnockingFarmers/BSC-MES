@@ -8,6 +8,7 @@ import com.github.ganlong.production.mapper.TestDataMapper;
 import com.github.ganlong.production.service.TestDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,5 +40,18 @@ public class TestDataServiceImpl extends ServiceImpl<TestDataMapper, TestData> i
             return testDataMapper.selectList(wrapper);
         }
         return new ArrayList<>();
+    }
+
+    @Override
+    @Transactional(rollbackFor = {Exception.class})
+    public Boolean addBatchTestData(List<TestData> testDataList) {
+
+        if (testDataList.size()>0) {
+            Integer batchColumn = testDataMapper.insertBatchColumn(testDataList);
+            if (batchColumn.equals(testDataList.size())) {
+                return new Boolean(true);
+            }
+        }
+        return new Boolean(false);
     }
 }

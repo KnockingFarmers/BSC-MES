@@ -21,4 +21,11 @@ public interface TestDataService extends IService<TestData> {
      * @return
      */
     List<TestData> getTestDataListByProductId(Long id);
+
+    /**
+     * 批量添加测试数据
+     * @param testDataList 数据集合
+     * @return
+     */
+    Boolean addBatchTestData(List<TestData> testDataList);
 }

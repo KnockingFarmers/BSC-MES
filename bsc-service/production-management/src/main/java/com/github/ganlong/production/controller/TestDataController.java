@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -34,8 +35,8 @@ public class TestDataController {
 
 
     @PostMapping("/add")
-    public boolean addTestData(@Validated TestData testData){
-        return testDataService.save(testData);
+    public boolean addTestData(@Validated TestData... testDat){
+        return testDataService.addBatchTestData(Arrays.asList(testDat));
     }
 
     @DeleteMapping("/deleted")
