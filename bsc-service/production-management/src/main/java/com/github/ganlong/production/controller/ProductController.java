@@ -5,7 +5,7 @@ import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.material.Material;
 import com.github.ganlong.model.production.Product;
 import com.github.ganlong.production.service.ProductService;
-import com.github.ganlong.production.service.feign.client.MaterialProvideClient;
+import com.github.ganlong.production.service.feign.client.MaterialFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +29,7 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
-    private MaterialProvideClient provideClient;
+    private MaterialFeignClient materialFeignClient;
 
     @GetMapping("/findAll")
     public List<Product> findAllProduct(){
@@ -58,7 +58,7 @@ public class ProductController {
 
     @GetMapping("/findMaterialByProductId")
     List<Material> findMaterialByProductId(String id,Integer okMaterial){
-        return provideClient.findMaterialByProductId(Long.valueOf(id),okMaterial);
+        return materialFeignClient.findMaterialByProductId(Long.valueOf(id),okMaterial);
     }
 
     @PutMapping("/modifiedStation")

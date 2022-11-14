@@ -15,7 +15,7 @@ import java.util.List;
  * @Version 1.0
  */
 @FeignClient("service-material")
-public interface MaterialProvideClient {
+public interface MaterialFeignClient {
 
     /**
      * 获取产品绑定的所有物料

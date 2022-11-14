@@ -27,10 +27,6 @@ public class Product extends BaseEntity {
     @Serialization
     private static final long serialVersionUID=1L;
 
-    /**
-     * SN
-     */
-    private String sn;
 
     /**
      * 当前工站
@@ -44,6 +40,9 @@ public class Product extends BaseEntity {
      */
     private Long orderId;
 
-
+    /**
+     * 生产线体
+     */
+    private Long lineId;
 
 }

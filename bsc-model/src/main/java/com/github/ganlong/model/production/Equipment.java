@@ -45,7 +45,7 @@ public class Equipment extends BaseEntity {
     /**
      * 设备所在线体
      */
-    private Long productionLineId;
+    private Long lineId;
 
 
 }
