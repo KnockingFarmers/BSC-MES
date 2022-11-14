@@ -37,17 +37,17 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public boolean addProduct(@Validated Product product){
+    public Boolean addProduct(@Validated Product product){
         return productService.save(product);
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteProduct(@NotBlank String productId){
+    public Boolean deleteProduct(@NotBlank String productId){
         return productService.removeById(productId);
     }
 
     @PutMapping("/update")
-    public boolean updateProduct(@Validated(UpdateGroup.class) Product product){
+    public Boolean updateProduct(@Validated(UpdateGroup.class) Product product){
         return productService.updateById(product);
     }
 
@@ -61,5 +61,9 @@ public class ProductController {
         return provideClient.findBindingMaterialByProductId(Long.valueOf(id));
     }
 
+    @PutMapping("/modifiedStation")
+    public Integer updateProduct(@Validated String id, Integer modifiedStation){
+        return productService.modifiedProductStation(Long.valueOf(id),modifiedStation);
+    }
 }
 

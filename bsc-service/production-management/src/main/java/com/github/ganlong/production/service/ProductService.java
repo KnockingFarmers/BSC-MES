@@ -20,4 +20,11 @@ public interface ProductService extends IService<Product> {
      */
     Product queryProductLife(Long id);
 
+    /**
+     * 修改产品当前工站
+     * @param id id
+     * @param modifiedStation 修改的站
+     * @return
+     */
+    Integer modifiedProductStation(Long id,Integer modifiedStation);
 }

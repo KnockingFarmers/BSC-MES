@@ -15,11 +15,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ProductMapper extends BaseMapper<Product> {
 
-    /**
-     * 查询产品生命周期
-     * @param sn sn
-     * @return
-     */
-    Product selectProductLife(String sn);
+
 
 }

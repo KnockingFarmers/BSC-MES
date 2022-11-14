@@ -1,6 +1,7 @@
 package com.github.ganlong.production.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.ganlong.commons.uitl.MapperUtil;
 import com.github.ganlong.model.production.Product;
@@ -25,15 +26,34 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Override
     public Product queryProductLife(Long id) {
-        Integer count = new MapperUtil<Product, ProductMapper>()
+        Integer exists = new MapperUtil<Product, ProductMapper>()
                 .dataExists("id", id,productMapper);
 
-        if (count!=0){
+        if (exists!=0){
             QueryWrapper wrapper = new QueryWrapper<>();
             wrapper.eq("id",id);
-            wrapper.select("station");
+            wrapper.select("current_station");
             return productMapper.selectOne(wrapper);
         }
         return new Product();
+    }
+
+    @Override
+    public Integer modifiedProductStation(Long id, Integer modifiedStation) {
+        Integer exists = new MapperUtil<Product, ProductMapper>()
+                .dataExists("id", id,productMapper);
+
+        if (exists>0) {
+            Product product = productMapper.selectById(id);
+
+            if (!product.getCurrentStation().equals(modifiedStation)) {
+                product.setCurrentStation(modifiedStation);
+                return productMapper.updateById(product);
+            }else {
+                //已在当前工站无需修改
+                return new Integer(2);
+            }
+        }
+        return new Integer(0);
     }
 }

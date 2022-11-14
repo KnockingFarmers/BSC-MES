@@ -1,11 +1,14 @@
 package com.github.ganlong.model.production;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.github.ganlong.enums.CurrentStation;
 import com.github.ganlong.model.base.BaseEntity;
 import com.sun.xml.internal.ws.developer.Serialization;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Range;
+
 
 /**
  * <p>
@@ -32,7 +35,8 @@ public class Product extends BaseEntity {
     /**
      * 当前工站
      */
-    private String currentStation;
+    @Range(min = 1,max =29,message = "类型范围 1~29")
+    private Integer currentStation;
 
 
     /**

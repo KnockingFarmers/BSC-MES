@@ -2,8 +2,5 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.ganlong.production.mapper.ProductMapper">
 
-    <select id="selectProductLife" resultType="com.github.ganlong.model.production.Product">
-        SELECT * FROM production_sn_life l LEFT JOIN  production_product p
-            ON l.product_id=p.id WHERE p.sn=#{sn}
-    </select>
+
 </mapper>
