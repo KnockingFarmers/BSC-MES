@@ -5,7 +5,7 @@ import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.material.Material;
 import com.github.ganlong.model.production.Product;
 import com.github.ganlong.production.service.ProductService;
-import com.github.ganlong.production.service.provide.client.MaterialProvideClient;
+import com.github.ganlong.production.service.feign.client.MaterialProvideClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -56,14 +56,16 @@ public class ProductController {
         return productService.queryProductLife(Long.valueOf(id));
     }
 
-    @GetMapping("/findBindingMaterialByProductId")
-    List<Material> findBindingMaterialByProductId(String id){
-        return provideClient.findBindingMaterialByProductId(Long.valueOf(id));
+    @GetMapping("/findMaterialByProductId")
+    List<Material> findMaterialByProductId(String id,Integer okMaterial){
+        return provideClient.findMaterialByProductId(Long.valueOf(id),okMaterial);
     }
 
     @PutMapping("/modifiedStation")
     public Integer updateProduct(@Validated String id, Integer modifiedStation){
         return productService.modifiedProductStation(Long.valueOf(id),modifiedStation);
     }
+
+
 }
 

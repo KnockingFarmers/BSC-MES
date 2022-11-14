@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author ganlong
@@ -28,15 +28,22 @@ public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> i
     private MaterialMapper materialMapper;
 
     @Override
-    public List<Material> queryProductBindingMaterials(Long productId) {
+    public List<Material> queryProductBindingMaterials(Long productId, Integer okMaterial) {
         MapperUtil<Material, MaterialMapper> mapperUtil = new MapperUtil<>();
         Integer exists = mapperUtil.dataExists("product_id", productId, materialMapper);
-        if (exists>0) {
+
+        if (exists > 0) {
             QueryWrapper<Material> wrapper = new QueryWrapper<>();
-            wrapper.eq("product_id",productId);
+            wrapper.eq("product_id", productId);
+
+            if (okMaterial.equals(0)) {
+                return materialMapper.selectList(wrapper);
+            }
             wrapper.eq("status", MaterialStatus.BINDING);
+
             return materialMapper.selectList(wrapper);
         }
         return new ArrayList<>();
     }
+
 }

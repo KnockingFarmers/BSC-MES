@@ -17,8 +17,11 @@ public interface MaterialService extends IService<Material> {
 
     /**
      * 根据产品 id 查询该产品当前绑定的所有物料
-     * @param productId
+     * @param productId id
+     * @param okMaterial 是否过滤报废物料
      * @return
      */
-    List<Material> queryProductBindingMaterials(Long productId);
+    List<Material> queryProductBindingMaterials(Long productId,Integer okMaterial);
+
+
 }

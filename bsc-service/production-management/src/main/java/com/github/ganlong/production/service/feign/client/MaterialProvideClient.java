@@ -1,4 +1,4 @@
-package com.github.ganlong.production.service.provide.client;
+package com.github.ganlong.production.service.feign.client;
 
 import com.github.ganlong.model.material.Material;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -20,8 +20,11 @@ public interface MaterialProvideClient {
     /**
      * 获取产品绑定的所有物料
      * @param id 产品id
+     * @param okMaterial 是否只获取绑定物料
      * @return
      */
-    @GetMapping("/findBindingMaterialByProductId")
-    List<Material> findBindingMaterialByProductId(Long id);
+    @GetMapping("/findMaterialByProductId")
+    List<Material> findMaterialByProductId(Long id,Integer okMaterial);
+
+
 }
