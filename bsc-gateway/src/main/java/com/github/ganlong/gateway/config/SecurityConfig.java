@@ -1,4 +1,4 @@
-package com.github.ganlong.auth.config;
+package com.github.ganlong.gateway.config;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,7 +16,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //定义认证规则
+    /**
+     * 定义认证规则
+     * @param auth
+     * @throws Exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -25,12 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          * spring security 官方推荐的是使用bcrypt加密方式。
          */
 
-        auth.inMemoryAuthentication()
+        auth.jdbcAuthentication()
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("kuangshen")
+                .withUser("5467758")
                 .password(new BCryptPasswordEncoder()
                         .encode("123456"))
-                .roles("vip2", "vip3")
+                .roles("A")
                 .and()
                 .withUser("root")
                 .password(new BCryptPasswordEncoder()
