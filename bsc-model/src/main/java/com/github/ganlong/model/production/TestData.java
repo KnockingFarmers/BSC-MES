@@ -6,8 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * <p>
@@ -15,7 +14,7 @@ import javax.validation.constraints.NotNull;
  * </p>
  *
  * @author ganlong
- * @since 2022-11-11
+ * @since 2022-11-15
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -25,34 +24,45 @@ public class TestData extends BaseEntity {
 
     private static final long serialVersionUID=1L;
 
-
     /**
      * 测试数据
      */
-    @NotBlank(message = "测试数据不能为空")
     private String testData;
 
     /**
      * 产品id
      */
-    @NotNull(message = "产品id不能为空")
     private Long productId;
 
     /**
      * 测试工站
      */
-    @NotNull(message = "测试工站不能为空")
     private Integer station;
 
     /**
-     * 测试物料
+     * 测试物料，id外键
      */
     private Long materialId;
 
     /**
      * 测试线体
      */
-    @NotNull(message = "线体id不能为空")
     private Long lineId;
+
+    /**
+     * 测试名字
+     */
+    private String testName;
+
+    /**
+     * 是否通过
+     */
+    private Integer passed;
+
+    /**
+     * 测试结束时间
+     */
+    private Date gmtTestEnd;
+
 
 }
