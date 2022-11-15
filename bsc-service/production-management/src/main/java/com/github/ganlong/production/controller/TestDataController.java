@@ -35,13 +35,13 @@ public class TestDataController {
 
 
     @PostMapping("/add")
-    public boolean addTestData(@Validated TestData... testDat){
+    public boolean addTestData(@Validated TestData testDat){
         return testDataService.addBatchTestData(Arrays.asList(testDat));
     }
 
     @DeleteMapping("/deleted")
-    public boolean deleteTestData(@NotBlank String id){
-        return testDataService.removeById(Long.valueOf(id));
+    public boolean deleteTestData(@NotBlank String testId){
+        return testDataService.removeById(Long.valueOf(testId));
     }
 
     @PutMapping("/update")

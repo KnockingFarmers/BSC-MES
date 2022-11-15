@@ -1,10 +1,10 @@
 package com.github.ganlong.commons.uitl;
 
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.github.ganlong.commons.config.JwtInfo;
+import io.jsonwebtoken.*;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @Author KnockingFarmers
@@ -29,5 +29,22 @@ public class JwtTokenUtil {
                 .signWith(SignatureAlgorithm.HS256,"admin")
                 .compact();
         return jwtToken;
+    }
+
+    public Integer checkToken(String token){
+
+        try {
+            Jwts.parser().setSigningKey("admin").parseClaimsJws(token);
+        }catch (JwtException e){
+            return 0;
+        }
+        return 1;
+    }
+
+    public Map<String,Object> analyzeToken(String token,String key){
+        Jws<Claims> claimsJws = Jwts.parser().setSigningKey("admin").parseClaimsJws(token);
+        Claims body = claimsJws.getBody();
+        Map<String,Object> map = (Map<String, Object>) body.get(key);
+        return map;
     }
 }

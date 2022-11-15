@@ -15,4 +15,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MaterialMapper extends BaseMapper<Material> {
 
+    /**
+     * 接触产品绑定的物料
+     * @param productId 产品id
+     * @param materialId 物料id
+     * @return
+     */
+    Integer updateMaterialStatusByProductId(Long productId, Long materialId);
 }

@@ -33,6 +33,7 @@ public class BaseMongoEntity implements Serializable {
     private Date updateTime;
 
     @ApiModelProperty(value = "其他参数")
+
     /**
      * 被该注解标注的，将不会被录入到数据库中。只作为普通的javaBean属性
      */

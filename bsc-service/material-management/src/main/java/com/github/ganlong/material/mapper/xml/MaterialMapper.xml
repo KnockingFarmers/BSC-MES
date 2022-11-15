@@ -2,4 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.ganlong.material.mapper.MaterialMapper">
 
+    <update id="updateMaterialStatusByProductId">
+        UPDATE material_material SET `product_id`=null ,`status`=0
+        WHERE product_id={productId} AND id=#{materialId}
+    </update>
 </mapper>

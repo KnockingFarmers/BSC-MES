@@ -15,6 +15,7 @@
         <module>bsc-gateway</module>
         <module>bsc-service</module>
         <module>generator</module>
+        <module>auth</module>
     </modules>
 
     <parent>

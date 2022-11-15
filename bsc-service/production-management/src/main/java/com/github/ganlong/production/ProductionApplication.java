@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author KnockingFarmers
@@ -17,6 +19,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
+@EnableTransactionManagement
 public class ProductionApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProductionApplication.class,args);

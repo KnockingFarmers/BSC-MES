@@ -23,5 +23,11 @@ public interface MaterialService extends IService<Material> {
      */
     List<Material> queryProductBindingMaterials(Long productId,Integer okMaterial);
 
-
+    /**
+     * 解绑物料绑定的产品
+     * @param productId 产品id
+     * @param materialId 物料id
+     * @return
+     */
+    Integer removeProductBindingMaterial(Long productId,Long materialId);
 }

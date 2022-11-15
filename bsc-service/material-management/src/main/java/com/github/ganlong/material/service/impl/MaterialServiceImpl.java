@@ -46,4 +46,9 @@ public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> i
         return new ArrayList<>();
     }
 
+    @Override
+    public Integer removeProductBindingMaterial(Long productId, Long materialId) {
+        return null;
+    }
+
 }

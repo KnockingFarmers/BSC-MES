@@ -15,7 +15,7 @@ import lombok.Getter;
 public enum CurrentStation {
 
     /**
-     * 工站状态 1 通过 0 未通过
+     * 当前工站 1-29
      */
 
     OP010(1),

@@ -24,8 +24,8 @@ public interface TestDataService extends IService<TestData> {
 
     /**
      * 批量添加测试数据
-     * @param testDataList 数据集合
+     * @param testData 数据对象
      * @return
      */
-    Boolean addBatchTestData(List<TestData> testDataList);
+    Integer addTestData(TestData testData);
 }
