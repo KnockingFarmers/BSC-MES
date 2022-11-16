@@ -2,4 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.ganlong.gateway.mapper.UserMapper">
 
+    <select id="getUserByUserName" resultType="com.github.ganlong.model.auth.User">
+        SELECT
+            id,
+            user_name,
+            password,
+            expired,
+            locked
+        FROM
+            auth_user
+        WHERE
+            user_name = #{userName}
+    </select>
+
+
+    <select id="getUserRolesByUserId" resultType="com.github.ganlong.model.auth.Role">
+        SELECT
+            ar.role_id id,
+            ar.role_code roleCode,
+            ar.role_name roleName
+        FROM
+            auth_user_role aur
+                LEFT join auth_role ar ON
+                aur.role_code = ar.role_code
+        WHERE
+            aur.user_id = #{userId}
+    </select>
 </mapper>
