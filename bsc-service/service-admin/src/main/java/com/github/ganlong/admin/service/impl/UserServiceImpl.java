@@ -1,8 +1,8 @@
-package com.github.ganlong.gateway.service.impl;
+package com.github.ganlong.admin.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.ganlong.gateway.mapper.UserMapper;
-import com.github.ganlong.gateway.service.UserService;
+import com.github.ganlong.admin.mapper.UserMapper;
+import com.github.ganlong.admin.service.UserService;
 import com.github.ganlong.model.auth.Role;
 import com.github.ganlong.model.auth.User;
 import org.apache.commons.lang3.ObjectUtils;
