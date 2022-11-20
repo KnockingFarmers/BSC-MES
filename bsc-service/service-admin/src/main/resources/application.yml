@@ -29,6 +29,13 @@ spring:
     username: root
     password:
     type: com.alibaba.druid.pool.DruidDataSource
+  #redis连接配置
+  redis:
+    host: 182.92.160.192
+    port: 6379
+    password: xi789156/
+    database: 1
+    timeout: 2000
 
 mybatis-plus:
   configuration:
