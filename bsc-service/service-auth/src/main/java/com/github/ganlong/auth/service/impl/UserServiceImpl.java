@@ -1,8 +1,8 @@
-package com.github.ganlong.admin.service.impl;
+package com.github.ganlong.auth.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.ganlong.admin.mapper.UserMapper;
-import com.github.ganlong.admin.service.UserService;
+import com.github.ganlong.auth.mapper.UserMapper;
+import com.github.ganlong.auth.service.UserService;
 import com.github.ganlong.commons.config.JwtInfo;
 import com.github.ganlong.commons.uitl.JwtTokenUtil;
 import com.github.ganlong.commons.uitl.RedisUtil;

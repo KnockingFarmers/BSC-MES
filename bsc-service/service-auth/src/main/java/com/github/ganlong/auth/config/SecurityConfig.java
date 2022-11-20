@@ -1,6 +1,6 @@
-package com.github.ganlong.admin.config;
+package com.github.ganlong.auth.config;
 
-import com.github.ganlong.admin.service.impl.UserServiceImpl;
+import com.github.ganlong.auth.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -1,4 +1,4 @@
-package com.github.ganlong.admin.controller;
+package com.github.ganlong.auth.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-11-15
  */
 @RestController
-@RequestMapping("/gateway/user")
-public class UserController {
+@RequestMapping("/gateway/user-role")
+public class UserRoleController {
 
-    
 }
 

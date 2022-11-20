@@ -14,7 +14,7 @@
     <modules>
         <module>production-management</module>
         <module>material-management</module>
-        <module>service-admin</module>
+        <module>service-auth</module>
     </modules>
 
     <dependencies>

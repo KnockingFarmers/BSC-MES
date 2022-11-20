@@ -1,7 +1,7 @@
-package com.github.ganlong.admin.service;
+package com.github.ganlong.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.ganlong.model.auth.User;
+import com.github.ganlong.model.auth.Role;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.github.ganlong.model.auth.User;
  * @author ganlong
  * @since 2022-11-15
  */
-public interface UserService extends IService<User> {
+public interface RoleService extends IService<Role> {
 
 }

@@ -1,8 +1,8 @@
-package com.github.ganlong.admin.service.impl;
+package com.github.ganlong.auth.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.ganlong.admin.mapper.RoleMapper;
-import com.github.ganlong.admin.service.RoleService;
+import com.github.ganlong.auth.mapper.RoleMapper;
+import com.github.ganlong.auth.service.RoleService;
 import com.github.ganlong.model.auth.Role;
 import org.springframework.stereotype.Service;
 

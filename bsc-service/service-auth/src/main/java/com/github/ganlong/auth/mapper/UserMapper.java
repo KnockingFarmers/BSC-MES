@@ -1,4 +1,4 @@
-package com.github.ganlong.admin.mapper;
+package com.github.ganlong.auth.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.ganlong.model.auth.Role;

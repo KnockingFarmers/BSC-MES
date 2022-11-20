@@ -1,4 +1,4 @@
-package com.github.ganlong.admin.config;
+package com.github.ganlong.auth.config;
 
 import com.github.ganlong.commons.uitl.RedisUtil;
 import org.springframework.context.annotation.Bean;

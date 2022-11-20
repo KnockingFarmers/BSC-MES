@@ -1,4 +1,4 @@
-package com.github.ganlong.admin.service;
+package com.github.ganlong.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.ganlong.model.auth.UserRole;
