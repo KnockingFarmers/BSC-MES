@@ -5,7 +5,7 @@ import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.material.Material;
 import com.github.ganlong.model.production.Product;
 import com.github.ganlong.production.service.ProductService;
-import com.github.ganlong.production.service.feign.client.MaterialFeignClient;
+import com.github.ganlong.production.service.rpc.MaterialFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

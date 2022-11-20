@@ -13,7 +13,8 @@ import java.util.Map;
  * @Version 1.0
  */
 @Data
-public class JwtInfo {
+public class JwtInfo<T extends Object> {
 
-    private Map<String,Object> tokenInfo;
+    private T tokenData;
+    private String tokenDataKey;
 }
