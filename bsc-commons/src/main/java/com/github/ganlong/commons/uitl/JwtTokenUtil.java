@@ -89,10 +89,10 @@ public class JwtTokenUtil {
                     .setSigningKey(SIGNATURE)
                     .parseClaimsJws(token);
         } catch (ExpiredJwtException expiredJwtException) {
-            log.info("token过期");
+            log.error("token过期");
             expiredJwtException.printStackTrace();
         } catch (RuntimeException e) {
-            log.info("非法token");
+            log.error("非法token");
             e.printStackTrace();
         } finally {
 
