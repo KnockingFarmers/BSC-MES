@@ -8,11 +8,17 @@ import com.github.ganlong.commons.uitl.JwtTokenUtil;
 import com.github.ganlong.commons.uitl.RedisUtil;
 import com.github.ganlong.model.auth.Role;
 import com.github.ganlong.model.auth.User;
+import com.github.ganlong.model.dto.auth.LoginUserDto;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +26,7 @@ import java.util.Map;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author ganlong
@@ -35,35 +41,59 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private RedisUtil redisUtil;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
-    public UserDetails loadUserByUsername(String token) throws UsernameNotFoundException {
-        User user =null;
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        user=(User) redisUtil.get(token);
+        // 用户名必须是唯一的，不允许重复
+        User user = userMapper.getUserByUserName(userName);
 
-        //缓存中没有
-        if (user.equals(null)) {
-            Map<String, Object> map = new JwtTokenUtil().analyzeTokenData(token, "user");
-            // 用户名必须是唯一的，不允许重复
-            user = userMapper.getUserByUserName((String) map.get("userName"));
-
-            if(ObjectUtils.isEmpty(user)){
-                throw new UsernameNotFoundException("根据用户名找不到该用户的信息！");
-            }
-            List<Role> roleList = userMapper.getUserRolesByUserId(user.getId().intValue());
-            user.setRoles(roleList);
-
-            //生成token并添加到缓存中
-            JwtTokenUtil tokenUtil=new JwtTokenUtil();
-            JwtInfo jwtInfo = new JwtInfo();
-            jwtInfo.setTokenData(user);
-            jwtInfo.setTokenDataKey("user");
-            String generateToken = tokenUtil.generateToken(jwtInfo);
-
-            //添加到redis缓存中
-            redisUtil.set(generateToken,user,JwtTokenUtil.EXTIRPATION);
+        if (ObjectUtils.isEmpty(user)) {
+            throw new UsernameNotFoundException("根据用户名找不到该用户的信息！");
         }
+        List<Role> roleList = userMapper.getUserRolesByUserId(user.getId().intValue());
+        user.setRoles(roleList);
+
 
         return user;
+}
+    @Override
+    public User findUserByUserName(String userName) {
+        return userMapper.getUserByUserName(userName);
     }
+
+    @Override
+    public UserDetails loadUser(String username) {
+        return this.loadUserByUsername(username);
+    }
+
+    @Override
+    public User login(LoginUserDto loginUserDto) {
+        //使用security框架自带的验证token生成器  也可以自定义。
+        UsernamePasswordAuthenticationToken token =
+                new UsernamePasswordAuthenticationToken(
+                        loginUserDto.getUsername(),
+                        loginUserDto.getPassword());
+
+        Authentication authenticate = authenticationManager.authenticate(token);
+        //放入Security上下文
+        SecurityContextHolder.getContext().setAuthentication(authenticate);
+        //获取登陆信息
+        LoginUserDto userInfo = (LoginUserDto) authenticate.getPrincipal();
+
+        //生成token
+        String generateToken = JwtTokenUtil.generateToken(userInfo.getUsername());
+        userInfo.setToken(generateToken);
+
+        //添加到redis缓存中
+        redisUtil.set(generateToken, userInfo, JwtTokenUtil.EXTIRPATION);
+
+        return userInfo;
+    }
+
 }

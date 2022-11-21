@@ -2,7 +2,11 @@ package com.github.ganlong.commons.uitl;
 
 import com.github.ganlong.commons.config.JwtInfo;
 import io.jsonwebtoken.*;
+import lombok.extern.slf4j.Slf4j;
 
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,20 +19,35 @@ import java.util.Map;
  * @Description: TODO
  * @Version 1.0
  */
+@Slf4j
 public class JwtTokenUtil {
 
+    /**
+     * JWT过期时间
+     */
     public static final Long EXTIRPATION = 1000L * 10L * 60L * 24L;
 
+    /**
+     * JWT签名
+     */
     private static final String SIGNATURE = "ganlong";
 
-    public String generateToken(JwtInfo jwtInfo) {
+    /**
+     * 私钥
+     */
+    private static String SECRET_KEY = "NiJoSecret";
+
+    public static String generateToken(String subject) {
+
+
         JwtBuilder jwtBuilder = Jwts.builder();
         String jwtToken = jwtBuilder
                 //header
                 .setHeaderParam("typ", "JWT")
                 .setHeaderParam("alg", "HS256")
-                //payload
-                .claim(jwtInfo.getTokenDataKey(), jwtInfo.getTokenData())
+                //subject
+                .setSubject(subject)
+                //签发时间
                 .setExpiration(new Date(System.currentTimeMillis() + EXTIRPATION))
                 //signature
                 .signWith(SignatureAlgorithm.HS256, SIGNATURE)
@@ -36,7 +55,7 @@ public class JwtTokenUtil {
         return jwtToken;
     }
 
-    public Map<String, Object> checkToken(String token) {
+    public static Map<String, Object> checkToken(String token) {
 
         Map<String, Object> resultMap = new HashMap<>(2);
         boolean pass = true;
@@ -46,26 +65,51 @@ public class JwtTokenUtil {
         Date expiration = claimsJws.getBody().getExpiration();
         //验证签名
         if (!signature.equals(SIGNATURE)) {
-            msg="签名无效";
-            pass=false;
+            msg = "签名无效";
+            pass = false;
             //查看过期时间
-        }else if (expiration.getTime()<= EXTIRPATION){
-            msg="token已过期";
-            pass=false;
+        } else if (expiration.getTime() <= EXTIRPATION) {
+            msg = "token已过期";
+            pass = false;
         }
 
         //通过验证
-        msg="OK";
-        resultMap.put("pass",pass);
-        resultMap.put("msg",msg);
+        msg = "OK";
+        resultMap.put("pass", pass);
+        resultMap.put("msg", msg);
 
         return resultMap;
     }
 
-    public Map<String, Object> analyzeTokenData(String token, String key) {
-        Jws<Claims> claimsJws = Jwts.parser().setSigningKey(SIGNATURE).parseClaimsJws(token);
-        Claims body = claimsJws.getBody();
-        Map<String, Object> map = (Map<String, Object>) body.get(key);
-        return map;
+    public static Claims analyzeTokenData(String token) {
+
+        Jws<Claims> claimsJws = null;
+        try {
+            claimsJws = Jwts.parser()
+                    .setSigningKey(SIGNATURE)
+                    .parseClaimsJws(token);
+        } catch (ExpiredJwtException expiredJwtException) {
+            log.info("token过期");
+            expiredJwtException.printStackTrace();
+        } catch (RuntimeException e) {
+            log.info("非法token");
+            e.printStackTrace();
+        } finally {
+
+            return claimsJws.getBody();
+        }
+
+
+    }
+
+    /**
+     * 生成加密后的秘钥 secretKey
+     *
+     * @return
+     */
+    public static SecretKey generalKey() {
+        byte[] encodedKey = Base64.getDecoder().decode(SECRET_KEY);
+        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
+        return key;
     }
 }

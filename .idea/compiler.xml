@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="production-management" />
+        <module name="bsc-commons" />
+        <module name="bsc-gateway" />
+        <module name="generator" />
+        <module name="material-management" />
+        <module name="service-auth" />
+        <module name="bsc-model" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth" target="1.8" />
+      <module name="bsc-admin" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auth" options="-parameters" />
+      <module name="bsc-admin" options="-parameters" />
+      <module name="bsc-commons" options="-parameters" />
+      <module name="bsc-gateway" options="-parameters" />
+      <module name="bsc-model" options="-parameters" />
+      <module name="bsc-service" options="-parameters" />
+      <module name="generator" options="-parameters" />
+      <module name="material-management" options="-parameters" />
+      <module name="production-management" options="-parameters" />
+      <module name="service-auth" options="-parameters" />
+    </option>
+  </component>
+</project>
