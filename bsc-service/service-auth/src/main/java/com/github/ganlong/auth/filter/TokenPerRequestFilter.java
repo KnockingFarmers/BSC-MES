@@ -33,17 +33,27 @@ public class TokenPerRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        //  获取Authorization属性
-        String token = request.getHeader("Authorization");
+        //获取token属性
+        String token = request.getHeader("token");
         if (StringUtils.isNotEmpty(token)) {
             //解析Token获取载荷
             Claims claims = JwtTokenUtil.analyzeTokenData(token);
-            //获取用户信息 在创建Token Subject是传入json  这里可以获取你json值 Subject是可以任何，怎么set 就怎么get
+
+            /**
+             * 获取用户信息 在创建Token Subject是传入json
+             * 这里可以获取你json值 Subject是可以任何，怎么set 就怎么get
+             */
             String userName = claims.getSubject();
             UserDetails userDetails = userService.loadUser(userName);
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            UsernamePasswordAuthenticationToken authenticationToken =
+                    new UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities());
+
             //放入上下文
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            SecurityContextHolder.getContext()
+                    .setAuthentication(authenticationToken);
 
         }
 
