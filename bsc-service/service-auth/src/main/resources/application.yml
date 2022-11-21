@@ -12,6 +12,15 @@ spring:
       discovery:
         server-addr: localhost:8848
 
+  #配置 smtp 服务器地址
+  mail:
+    host: smtp.qq.com
+    # 服务器端口
+    #port: 8080
+    username: 3237764237@qq.com
+    #授权码
+    password: lcdfggcrxgrdcjgb
+    default-encoding: utf-8
 
   #json的全局时间各种
   jackson:
