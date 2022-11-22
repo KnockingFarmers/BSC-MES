@@ -3,7 +3,6 @@ package com.github.ganlong.auth.filter;
 import com.github.ganlong.auth.service.UserService;
 import com.github.ganlong.commons.uitl.JwtTokenUtil;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

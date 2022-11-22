@@ -15,6 +15,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
@@ -30,8 +32,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserServiceImpl userService;
+
+    @Autowired
     private CustomerAuthenticationProvider customerAuthenticationProvider;
+
+    @Autowired
     private TokenPerRequestFilter tokenPerRequestFilter;
+
+
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
+
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
     /**
      * 对请求进行鉴权的配置
      *
@@ -60,7 +73,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterBefore(tokenPerRequestFilter, UsernamePasswordAuthenticationFilter.class)
 
+                //异常处理的代理对象
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler)
+                .authenticationEntryPoint(authenticationEntryPoint)
+
                 // 暂时关闭CSRF校验，允许get请求登出
+                .and()
                 .csrf().disable();
     }
 
