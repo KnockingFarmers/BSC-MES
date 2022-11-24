@@ -64,7 +64,15 @@ public class User extends BaseEntity implements UserDetails {
      */
     private Boolean locked;
 
+    /**
+     * 权限列表
+     */
     private List<Role> roles;
+
+    /**
+     * 工号
+     */
+    private Long workNum;
 
     /**
      * 获取用户的所有角色信息
