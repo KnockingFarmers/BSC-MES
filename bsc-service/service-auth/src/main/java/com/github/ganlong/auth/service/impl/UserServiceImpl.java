@@ -9,6 +9,11 @@ import com.github.ganlong.commons.uitl.RedisUtil;
 import com.github.ganlong.model.auth.Role;
 import com.github.ganlong.model.auth.User;
 import com.github.ganlong.model.dto.auth.LoginUserDto;
+import me.zhyd.oauth.config.AuthConfig;
+import me.zhyd.oauth.model.AuthCallback;
+import me.zhyd.oauth.request.AuthRequest;
+import me.zhyd.oauth.request.AuthWeChatEnterpriseQrcodeRequest;
+import me.zhyd.oauth.utils.AuthStateUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +26,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -94,6 +101,27 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         redisUtil.set(generateToken, userInfo, JwtTokenUtil.EXTIRPATION);
 
         return userInfo;
+    }
+
+    @Override
+    public void renderAuth(HttpServletResponse response) throws IOException {
+        AuthRequest authRequest = getAuthRequest();
+        response.sendRedirect(authRequest.authorize(AuthStateUtils.createState()));
+    }
+
+    @Override
+    public Object login(AuthCallback callback) {
+        AuthRequest authRequest = getAuthRequest();
+        return authRequest.login(callback);
+    }
+
+    private AuthRequest getAuthRequest() {
+        return new AuthWeChatEnterpriseQrcodeRequest(AuthConfig.builder()
+                .clientId("Client ID")
+                .clientSecret("Client Secret")
+                .redirectUri("回调地址")
+                .agentId("xxxx")
+                .build());
     }
 
 }
