@@ -34,16 +34,16 @@ public class UserController {
         return userService.login(loginUserDto);
     }
 
-    @PostMapping("/render")
-    public void renderAuth(HttpServletResponse response) throws IOException {
-         userService.renderAuth(response);
-    }
-
-
-    @PostMapping("/callback")
-    public Object login(AuthCallback callback){
-        return userService.login(callback);
-    }
+//    @PostMapping("/render")
+//    public void renderAuth(HttpServletResponse response) throws IOException {
+//         userService.renderAuth(response);
+//    }
+//
+//
+//    @PostMapping("/callback")
+//    public Object login(AuthCallback callback){
+//        return userService.login(callback);
+//    }
 
 
     

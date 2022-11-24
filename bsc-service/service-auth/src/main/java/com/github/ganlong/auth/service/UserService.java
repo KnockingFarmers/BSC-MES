@@ -41,17 +41,5 @@ public interface UserService extends IService<User> {
      */
     User login(LoginUserDto loginUserDto);
 
-    /**
-     * 生成授权连接
-     * @param response
-     * @throws IOException
-     */
-     void renderAuth(HttpServletResponse response) throws IOException;
 
-    /**
-     * 授权回调
-     * @param callback
-     * @return
-     */
-     Object login(AuthCallback callback);
 }

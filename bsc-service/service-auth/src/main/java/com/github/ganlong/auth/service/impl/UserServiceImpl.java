@@ -103,25 +103,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userInfo;
     }
 
-    @Override
-    public void renderAuth(HttpServletResponse response) throws IOException {
-        AuthRequest authRequest = getAuthRequest();
-        response.sendRedirect(authRequest.authorize(AuthStateUtils.createState()));
-    }
 
-    @Override
-    public Object login(AuthCallback callback) {
-        AuthRequest authRequest = getAuthRequest();
-        return authRequest.login(callback);
-    }
-
-    private AuthRequest getAuthRequest() {
-        return new AuthWeChatEnterpriseQrcodeRequest(AuthConfig.builder()
-                .clientId("Client ID")
-                .clientSecret("Client Secret")
-                .redirectUri("回调地址")
-                .agentId("xxxx")
-                .build());
-    }
 
 }
