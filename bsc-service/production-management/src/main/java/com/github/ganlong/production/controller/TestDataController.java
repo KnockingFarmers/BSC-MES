@@ -35,8 +35,8 @@ public class TestDataController {
 
 
     @PostMapping("/add")
-    public boolean addTestData(@Validated TestData testDat){
-        return testDataService.addBatchTestData(Arrays.asList(testDat));
+    public Integer addTestData(@Validated TestData testData){
+        return testDataService.addTestData(testData);
     }
 
     @DeleteMapping("/deleted")

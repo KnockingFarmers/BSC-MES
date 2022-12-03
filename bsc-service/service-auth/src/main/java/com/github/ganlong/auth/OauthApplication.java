@@ -18,8 +18,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableDiscoveryClient
 @EnableConfigurationProperties
-public class AdminApplication {
+public class OauthApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AdminApplication.class,args);
+        SpringApplication.run(OauthApplication.class,args);
     }
 }

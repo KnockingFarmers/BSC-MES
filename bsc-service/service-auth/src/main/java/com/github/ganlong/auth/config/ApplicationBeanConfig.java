@@ -1,8 +1,10 @@
 package com.github.ganlong.auth.config;
 
 import com.github.ganlong.commons.uitl.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * @Author KnockingFarmers
@@ -15,8 +17,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationBeanConfig {
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @Bean
     public RedisUtil redisUtil(){
-        return new RedisUtil();
+        return new RedisUtil(redisTemplate);
     }
 }
