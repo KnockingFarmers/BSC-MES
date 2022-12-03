@@ -1,5 +1,6 @@
 package com.github.ganlong.auth;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -14,6 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @Description: TODO
  * @Version 1.0
  */
+@MapperScan("com.github.ganlong.auth.mapper")
 @SpringBootApplication
 @EnableFeignClients
 @EnableDiscoveryClient

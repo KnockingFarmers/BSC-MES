@@ -31,4 +31,5 @@ public interface UserMapper extends BaseMapper<User> {
      * @return
      */
     List<Role> getUserRolesByUserId(Integer userId);
+
 }

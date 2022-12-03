@@ -50,6 +50,7 @@ mybatis-plus:
   configuration:
     #mybatis日志
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/com/github/ganlong/auth/mapper/xml/*.xml
 
   #MP全局配置
   global-config:
