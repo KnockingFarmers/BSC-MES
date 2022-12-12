@@ -32,7 +32,7 @@ public class Order extends BaseEntity {
      * 订单号
      */
     @TableField("order_no")
-    private Long orderNo;
+    private String orderNo;
 
 
     /**

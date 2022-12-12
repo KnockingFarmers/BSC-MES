@@ -10,6 +10,8 @@ import com.github.ganlong.production.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * <p>
  * 生产管理订单表 服务实现类
@@ -23,6 +25,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Autowired
     OrderMapper orderMapper;
+
+
+    /**
+     * 生成订单号
+     * @return OrderNum
+     */
+    private String generateOrderNum(){
+        String orderNum="123";
+
+        return orderNum;
+    }
 
     @Override
     public Long queryOrderOkProductNum(Long orderId) {
@@ -42,6 +55,28 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
             return orderMapper.selectPlanByOrderId(orderId);
         }
         return new Order();
+    }
+
+    @Override
+    public ApiObject saveOrder(Order order) {
+
+        order.setGmtCreated(new Date());
+        order.setOrderNo(generateOrderNum());
+        order.setStatus(0);
+        int insert = orderMapper.insert(order);
+
+        ApiObject<Integer> apiObject=new ApiObject<>();
+
+        if (insert>0) {
+            apiObject.setMessage("添加成功");
+            apiObject.setErrorCode("0");
+        }else {
+            apiObject.setMessage("添加失败");
+            apiObject.setErrorCode("500");
+        }
+
+        apiObject.setData(insert);
+        return apiObject;
     }
 
     @Override
