@@ -1,6 +1,7 @@
 package com.github.ganlong.production.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.production.Order;
 import com.github.ganlong.production.service.OrderService;
@@ -50,6 +51,11 @@ public class OrderController {
     @GetMapping("/getOrderOkProduct")
     public Long getOrderOkProduct(@NotBlank(message = "id不能为空") String orderId){
         return orderService.queryOrderOkProductNum(Long.valueOf(orderId));
+    }
+
+    @GetMapping("/findByOrderNo")
+    public Order getOrderById(String orderNo){
+        return orderService.getOne(null);
     }
 }
 

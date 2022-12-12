@@ -1,6 +1,7 @@
 package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.ganlong.commons.api.ApiObject;
 import com.github.ganlong.model.production.Order;
 
 /**
@@ -26,6 +27,13 @@ public interface OrderService extends IService<Order> {
      * @return OrderDTO
      */
     Order queryOrderPlan(Long orderId);
+
+    /**
+     * 根据订单号获取订单
+     * @param orderNo 订单号
+     * @return
+     */
+    ApiObject queryOrderByOrderNo(String orderNo);
 
 
 
