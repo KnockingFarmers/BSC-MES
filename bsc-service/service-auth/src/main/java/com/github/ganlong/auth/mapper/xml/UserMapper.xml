@@ -18,7 +18,7 @@
 
     <select id="getUserRolesByUserId" resultType="com.github.ganlong.model.auth.Role">
         SELECT
-            ar.role_id id,
+            ar.id id,
             ar.role_code roleCode,
             ar.role_name roleName
         FROM

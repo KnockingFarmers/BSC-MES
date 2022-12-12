@@ -6,6 +6,7 @@ import com.github.ganlong.model.auth.User;
 import com.github.ganlong.model.dto.auth.LoginUserDto;
 import me.zhyd.oauth.model.AuthCallback;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -30,9 +31,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public User login(LoginUserDto loginUserDto){
+    public Object login(LoginUserDto loginUserDto){
         return userService.login(loginUserDto);
     }
+
+
+
 
 //    @PostMapping("/render")
 //    public void renderAuth(HttpServletResponse response) throws IOException {

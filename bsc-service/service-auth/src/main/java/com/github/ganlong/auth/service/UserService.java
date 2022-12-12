@@ -39,7 +39,7 @@ public interface UserService extends IService<User> {
      * @param loginUserDto
      * @return
      */
-    User login(LoginUserDto loginUserDto);
+    Object login(LoginUserDto loginUserDto);
 
 
 }

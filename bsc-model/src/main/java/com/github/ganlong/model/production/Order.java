@@ -54,10 +54,10 @@ public class Order extends BaseEntity {
     private BigDecimal orderAmount;
 
     /**
-     * 订单产品
+     * 产品类型Id
      */
-    @TableField("order_product")
-    private String orderProduct;
+    @TableField("order_product_id")
+    private Long orderProductId;
 
     /**
      * 下单数量
@@ -66,7 +66,7 @@ public class Order extends BaseEntity {
     private Double productNum;
 
     /**
-     * 客户id，外键
+     * 客户Id，外键
      */
     @TableField("customer_id")
     private Long customerId;

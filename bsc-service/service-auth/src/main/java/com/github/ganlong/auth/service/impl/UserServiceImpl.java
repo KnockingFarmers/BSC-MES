@@ -80,7 +80,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public User login(LoginUserDto loginUserDto) {
+    public Object login(LoginUserDto loginUserDto) {
         //使用security框架自带的验证token生成器  也可以自定义。
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(
@@ -91,11 +91,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         //放入Security上下文
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         //获取登陆信息
-        LoginUserDto userInfo = (LoginUserDto) authenticate.getPrincipal();
+        Object userInfo = authenticate.getPrincipal();
 
         //生成token
-        String generateToken = JwtTokenUtil.generateToken(userInfo.getUsername());
-        userInfo.setToken(generateToken);
+        String generateToken = JwtTokenUtil.generateToken(userInfo.toString());
+
+//        userInfo.setToken(generateToken);
 
         //添加到redis缓存中
         redisUtil.set(generateToken, userInfo, JwtTokenUtil.EXTIRPATION);
