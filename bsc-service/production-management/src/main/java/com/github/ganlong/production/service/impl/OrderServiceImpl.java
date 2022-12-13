@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.ganlong.commons.api.ApiObject;
 import com.github.ganlong.commons.uitl.MapperUtil;
+import com.github.ganlong.commons.uitl.UniqueNumberUtil;
 import com.github.ganlong.model.production.Order;
 import com.github.ganlong.production.mapper.OrderMapper;
 import com.github.ganlong.production.service.OrderService;
@@ -27,16 +28,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     OrderMapper orderMapper;
 
 
-    /**
-     * 生成订单号
-     * @return OrderNum
-     */
-    private String generateOrderNum(){
-        String orderNum="123";
-
-        return orderNum;
-    }
-
     @Override
     public Long queryOrderOkProductNum(Long orderId) {
         MapperUtil<Order, OrderMapper> mapperUtil = new MapperUtil<>();
@@ -58,11 +49,15 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public ApiObject saveOrder(Order order) {
+    public ApiObject saveOrder(Order order) throws NoSuchFieldException, IllegalAccessException {
 
         order.setGmtCreated(new Date());
-        order.setOrderNo(generateOrderNum());
+
         order.setStatus(0);
+
+        String orderNo = UniqueNumberUtil.generateUniqueNum(String.valueOf(order.getCustomerId()));
+
+        order.setOrderNo(orderNo);
         int insert = orderMapper.insert(order);
 
         ApiObject<Integer> apiObject=new ApiObject<>();
