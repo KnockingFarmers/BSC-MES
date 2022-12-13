@@ -19,11 +19,10 @@ import java.util.Map;
  * @date: 2022/11/7 20:08
  **/
 @Data
-@KeySequence("SEQ_ORACLE_STRING_KEY")
 public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "id")
-    @TableId(type = IdType.INPUT)
+    @TableId(type = IdType.ASSIGN_ID)
     @NotNull(groups = {UpdateGroup.class},message = "id 不能为空")
     private Long id;
 
