@@ -39,5 +39,43 @@ public class ApiResult<T> extends HashMap<String, Object> {
         this.errorCode = ApiStatusCodeEnum.OK;
     }
 
+    public void queryError() {
+        this.message = ApiMessageEnum.SELECT_ERROR;
+        this.errorCode = ApiStatusCodeEnum.SERVER_ERROR;
+    }
+
+    public void updateOk() {
+        this.message = ApiMessageEnum.UPDATE_OK;
+        this.errorCode = ApiStatusCodeEnum.OK;
+    }
+
+    public void updateError() {
+        this.message = ApiMessageEnum.UPDATE_ERROR;
+        this.errorCode = ApiStatusCodeEnum.SERVER_ERROR;
+    }
+
+    public void deleteOk() {
+        this.message = ApiMessageEnum.DELETE_OK;
+        this.errorCode = ApiStatusCodeEnum.OK;
+    }
+
+    public void deleteError() {
+        this.message = ApiMessageEnum.DELETE_ERROR;
+        this.errorCode = ApiStatusCodeEnum.SERVER_ERROR;
+    }
+
+    public void insertOk() {
+        this.message = ApiMessageEnum.INSERT_OK;
+        this.errorCode = ApiStatusCodeEnum.OK;
+    }
+
+    public void insertError() {
+        this.message = ApiMessageEnum.INSERT_ERROR;
+        this.errorCode = ApiStatusCodeEnum.SERVER_ERROR;
+    }
+
+    public void notFountError(){
+
+    }
 
 }
