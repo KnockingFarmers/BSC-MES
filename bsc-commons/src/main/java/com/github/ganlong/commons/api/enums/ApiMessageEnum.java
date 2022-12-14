@@ -49,7 +49,22 @@ public enum ApiMessageEnum {
     /**
      * 插入失败
      */
-    INSERT_ERROR("插入失败");
+    INSERT_ERROR("插入失败"),
+
+    /**
+     * 找不到
+     */
+    NOT_FOUNT_ERROR("不存在该资源"),
+
+    /**
+     * 参数异常
+     */
+    PARAM_ERROR("参数错误"),
+
+    /**
+     * 登录异常
+     */
+    LOGIN_ERROR("账号或密码错误");
 
     private String message;
     ApiMessageEnum(String message) {

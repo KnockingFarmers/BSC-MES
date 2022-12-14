@@ -75,7 +75,13 @@ public class ApiResult<T> extends HashMap<String, Object> {
     }
 
     public void notFountError(){
+        this.message = ApiMessageEnum.NOT_FOUNT_ERROR;
+        this.errorCode = ApiStatusCodeEnum.NOT_FOUNT;
+    }
 
+    public void LoginError(){
+        this.message = ApiMessageEnum.LOGIN_ERROR;
+        this.errorCode = ApiStatusCodeEnum.PARAM_ERROR;
     }
 
 }
