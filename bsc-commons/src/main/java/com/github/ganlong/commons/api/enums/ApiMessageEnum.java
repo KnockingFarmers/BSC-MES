@@ -64,7 +64,13 @@ public enum ApiMessageEnum {
     /**
      * 登录异常
      */
-    LOGIN_ERROR("账号或密码错误");
+    LOGIN_ERROR("账号或密码错误"),
+
+    /**
+     * 未登录
+     */
+    NOT_LOGIN("请先登录");
+
 
     private String message;
     ApiMessageEnum(String message) {
