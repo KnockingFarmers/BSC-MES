@@ -60,14 +60,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setOrderNo(orderNo);
         int insert = orderMapper.insert(order);
 
-        ApiResult<Integer> apiObject=new ApiResult<>();
+        ApiResult<Integer> apiObject=new ApiResult<>(insert);
 
         if (insert>0) {
-            apiObject.setMessage("添加成功");
-            apiObject.setErrorCode("0");
+            apiObject.queryOk();
         }else {
-            apiObject.setMessage("添加失败");
-            apiObject.setErrorCode("500");
+            apiObject.queryError();
         }
 
         apiObject.setData(insert);
@@ -81,14 +79,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         wrapper.eq("order_no",orderNo);
         Order order = orderMapper.selectOne(wrapper);
 
-        ApiResult<Order> apiObject=new ApiResult<>();
+        ApiResult<Order> apiObject=new ApiResult<>(order);
 
         if (order!=null) {
-            apiObject.setMessage("查询成功");
-            apiObject.setErrorCode("0");
+           apiObject.queryOk();
         }else {
-            apiObject.setMessage("不存在该订单号");
-            apiObject.setErrorCode("404");
+            apiObject.notFountError();
         }
 
         apiObject.setData(order);
