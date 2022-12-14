@@ -5,7 +5,7 @@ package com.github.ganlong.commons.api.enums;
  * @Date 2022/12/14 9:25
  * @PackageName:com.github.ganlong.commons.api.enums
  * @ClassName: MessageEnum
- * @Description: TODO
+ * @Description: 返回结果消息
  * @Version 1.0
  */
 public enum ApiMessageEnum {

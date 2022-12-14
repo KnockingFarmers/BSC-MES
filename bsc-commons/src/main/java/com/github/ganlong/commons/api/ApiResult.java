@@ -1,6 +1,7 @@
 package com.github.ganlong.commons.api;
 
 import com.github.ganlong.commons.api.enums.ApiMessageEnum;
+import com.github.ganlong.commons.api.enums.ApiStatusCodeEnum;
 import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,15 +26,17 @@ public class ApiResult<T> extends HashMap<String, Object> {
 
     private T data;
 
-    private String message;
+    private ApiMessageEnum message;
 
-    private String errorCode;
+    private ApiStatusCodeEnum errorCode;
 
-
-    public void queryOk(T data) {
-        this.message = ApiMessageEnum.SELECT_OK.toString();
+    public ApiResult(T data) {
         this.data=data;
-//        this.errorCode=
+    }
+
+    public void queryOk() {
+        this.message = ApiMessageEnum.SELECT_OK;
+        this.errorCode = ApiStatusCodeEnum.OK;
     }
 
 
