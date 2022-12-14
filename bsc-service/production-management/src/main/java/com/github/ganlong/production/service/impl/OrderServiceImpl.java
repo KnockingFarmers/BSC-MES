@@ -2,7 +2,7 @@ package com.github.ganlong.production.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.ganlong.commons.api.ApiObject;
+import com.github.ganlong.commons.api.ApiResult;
 import com.github.ganlong.commons.uitl.MapperUtil;
 import com.github.ganlong.commons.uitl.UniqueNumberUtil;
 import com.github.ganlong.model.production.Order;
@@ -49,7 +49,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public ApiObject saveOrder(Order order) throws NoSuchFieldException, IllegalAccessException {
+    public ApiResult saveOrder(Order order) throws NoSuchFieldException, IllegalAccessException {
 
         order.setGmtCreated(new Date());
 
@@ -60,7 +60,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setOrderNo(orderNo);
         int insert = orderMapper.insert(order);
 
-        ApiObject<Integer> apiObject=new ApiObject<>();
+        ApiResult<Integer> apiObject=new ApiResult<>();
 
         if (insert>0) {
             apiObject.setMessage("添加成功");
@@ -75,13 +75,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public ApiObject queryOrderByOrderNo(String orderNo) {
+    public ApiResult queryOrderByOrderNo(String orderNo) {
 
         QueryWrapper<Order> wrapper = new QueryWrapper<>();
         wrapper.eq("order_no",orderNo);
         Order order = orderMapper.selectOne(wrapper);
 
-        ApiObject<Order> apiObject=new ApiObject<>();
+        ApiResult<Order> apiObject=new ApiResult<>();
 
         if (order!=null) {
             apiObject.setMessage("查询成功");

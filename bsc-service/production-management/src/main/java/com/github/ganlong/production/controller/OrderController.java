@@ -1,8 +1,7 @@
 package com.github.ganlong.production.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.github.ganlong.commons.api.ApiObject;
+import com.github.ganlong.commons.api.ApiResult;
 import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.production.Order;
 import com.github.ganlong.production.service.OrderService;
@@ -11,8 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,7 +33,7 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public ApiObject addOrder(@Validated Order order){
+    public ApiResult addOrder(@Validated Order order) throws NoSuchFieldException, IllegalAccessException {
 
         return orderService.saveOrder(order);
     }
