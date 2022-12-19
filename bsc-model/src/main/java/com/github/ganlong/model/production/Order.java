@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
 /**
@@ -44,6 +45,7 @@ public class Order extends BaseEntity {
     /**
      * 责任人
      */
+    @NotBlank(message = "责任人不能为空")
     @TableField("responsible_person")
     private String responsiblePerson;
 

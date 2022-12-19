@@ -30,8 +30,10 @@ public interface OrderService extends IService<Order> {
 
     /**
      * 添加订单
-     * @param order 订单对象
+     * @param order
      * @return
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
      */
     ApiResult saveOrder(Order order) throws NoSuchFieldException, IllegalAccessException;
 

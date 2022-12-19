@@ -71,9 +71,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         ApiResult<Integer> apiObject=new ApiResult<>();
 
         if (insert>0) {
-            apiObject.queryOk(insert);
+            apiObject.insertOk(insert);
         }else {
-            apiObject.queryError(insert);
+            apiObject.insertError(insert);
         }
 
         return apiObject;
