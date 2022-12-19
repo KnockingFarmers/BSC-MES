@@ -47,12 +47,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         Integer count = mapperUtil.dataExists("id",orderId,orderMapper);
         Order order=new Order();
         ApiResult<Order> result = new ApiResult<>();
-        if (count!=0) {
+        if (count>0) {
             order= orderMapper.selectPlanByOrderId(orderId);
-            result.setData(order);
-            result.queryOk();
+            result.queryOk(order);
         }else {
-            result.notFountError();
+            result.notFountError(order);
         }
         return result;
     }
@@ -69,12 +68,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setOrderNo(orderNo);
         int insert = orderMapper.insert(order);
 
-        ApiResult<Integer> apiObject=new ApiResult<>(insert);
+        ApiResult<Integer> apiObject=new ApiResult<>();
 
         if (insert>0) {
-            apiObject.queryOk();
+            apiObject.queryOk(insert);
         }else {
-            apiObject.queryError();
+            apiObject.queryError(insert);
         }
 
         return apiObject;
@@ -82,17 +81,18 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
     @Override
     public ApiResult<Order> queryOrderByOrderNo(String orderNo) {
+        MapperUtil<Order, OrderMapper> mapperUtil = new MapperUtil<>();
 
-        QueryWrapper<Order> wrapper = new QueryWrapper<>();
-        wrapper.eq("order_no",orderNo);
-        Order order = orderMapper.selectOne(wrapper);
-
-        ApiResult<Order> apiObject=new ApiResult<>(order);
-
-        if (order!=null) {
-           apiObject.queryOk();
+        Integer count = mapperUtil.dataExists("order_no",orderNo,orderMapper);
+        ApiResult<Order> apiObject=new ApiResult<>();
+        Order order=new Order();
+        if (count>0) {
+            QueryWrapper<Order> wrapper = new QueryWrapper<>();
+            wrapper.eq("order_no",orderNo);
+             order = orderMapper.selectOne(wrapper);
+            apiObject.queryOk(order);
         }else {
-            apiObject.notFountError();
+            apiObject.notFountError(order);
         }
 
         log.info(apiObject.toString());
