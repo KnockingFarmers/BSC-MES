@@ -8,6 +8,7 @@ import com.github.ganlong.commons.uitl.UniqueNumberUtil;
 import com.github.ganlong.model.production.Order;
 import com.github.ganlong.production.mapper.OrderMapper;
 import com.github.ganlong.production.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ import java.util.Date;
  * @since 2022-11-08
  */
 @Service
+@Slf4j
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
 
     @Autowired
@@ -39,13 +41,20 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     }
 
     @Override
-    public Order queryOrderPlan(Long orderId) {
+    public ApiResult queryOrderPlan(Long orderId) {
         MapperUtil<Order, OrderMapper> mapperUtil = new MapperUtil<>();
+
         Integer count = mapperUtil.dataExists("id",orderId,orderMapper);
+        Order order=new Order();
+        ApiResult<Order> result = new ApiResult<>();
         if (count!=0) {
-            return orderMapper.selectPlanByOrderId(orderId);
+            order= orderMapper.selectPlanByOrderId(orderId);
+            result.setData(order);
+            result.queryOk();
+        }else {
+            result.notFountError();
         }
-        return new Order();
+        return result;
     }
 
     @Override
@@ -68,12 +77,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
             apiObject.queryError();
         }
 
-        apiObject.setData(insert);
         return apiObject;
     }
 
     @Override
-    public ApiResult queryOrderByOrderNo(String orderNo) {
+    public ApiResult<Order> queryOrderByOrderNo(String orderNo) {
 
         QueryWrapper<Order> wrapper = new QueryWrapper<>();
         wrapper.eq("order_no",orderNo);
@@ -87,7 +95,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
             apiObject.notFountError();
         }
 
-        apiObject.setData(order);
+        log.info(apiObject.toString());
+
         return apiObject;
     }
 

@@ -1,5 +1,8 @@
 package com.github.ganlong.commons.api.enums;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 /**
  * @Author KnockingFarmers
  * @Date 2022/12/14 9:44
@@ -8,6 +11,8 @@ package com.github.ganlong.commons.api.enums;
  * @Description: HTTP状态码枚举
  * @Version 1.0
  */
+@NoArgsConstructor
+@Getter
 public enum ApiStatusCodeEnum {
 
     NOT_FOUNT(404),

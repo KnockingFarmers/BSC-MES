@@ -26,7 +26,7 @@ public interface OrderService extends IService<Order> {
      * @param orderId 订单id
      * @return OrderDTO
      */
-    Order queryOrderPlan(Long orderId);
+    ApiResult queryOrderPlan(Long orderId);
 
     /**
      * 添加订单

@@ -1,5 +1,7 @@
 package com.github.ganlong.commons.api.enums;
 
+import lombok.*;
+
 /**
  * @Author KnockingFarmers
  * @Date 2022/12/14 9:25
@@ -8,6 +10,8 @@ package com.github.ganlong.commons.api.enums;
  * @Description: 返回结果消息
  * @Version 1.0
  */
+@NoArgsConstructor
+@Getter
 public enum ApiMessageEnum {
 
 

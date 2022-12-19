@@ -54,8 +54,9 @@ public class OrderController {
     }
 
     @GetMapping("/findByOrderNo")
-    public Order getOrderById(String orderNo){
-        return orderService.getOne(null);
+    public ApiResult<Order> getOrderById(@NotBlank(message = "订单号不能为空")
+                                                     String orderNo){
+        return orderService.queryOrderByOrderNo(orderNo);
     }
 }
 
