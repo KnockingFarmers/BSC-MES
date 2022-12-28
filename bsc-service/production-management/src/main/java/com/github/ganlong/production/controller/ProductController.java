@@ -1,6 +1,7 @@
 package com.github.ganlong.production.controller;
 
 
+import com.github.ganlong.commons.api.ApiResult;
 import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.material.Material;
 import com.github.ganlong.model.production.Product;
@@ -62,8 +63,8 @@ public class ProductController {
     }
 
     @PutMapping("/modifiedStation")
-    public Integer updateProduct(@Validated String id, Integer modifiedStation){
-        return productService.modifiedProductStation(Long.valueOf(id),modifiedStation);
+    public ApiResult updateProduct(@Validated String id, String modifiedStation){
+        return productService.modifiedProductStation(Long.valueOf(id),Long.valueOf(modifiedStation));
     }
 
 }
