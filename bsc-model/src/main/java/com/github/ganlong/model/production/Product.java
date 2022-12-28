@@ -35,10 +35,9 @@ public class Product extends BaseEntity {
     /**
      * 当前工站
      */
-    @TableField("current_station")
-    @Range(min = 1,max =29,message = "类型范围 1~29")
+    @TableField("current_station_id")
     @NotNull(message = "工站不能为空",groups = {UpdateGroup.class,InsertGroup.class})
-    private Integer currentStation;
+    private Long currentStationId;
 
 
     /**

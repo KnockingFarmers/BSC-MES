@@ -2,13 +2,8 @@ package com.github.ganlong.auth.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.ganlong.model.auth.User;
-import com.github.ganlong.model.dto.auth.LoginUserDto;
-import me.zhyd.oauth.model.AuthCallback;
-import me.zhyd.oauth.request.AuthRequest;
+import com.github.ganlong.vo.auth.LoginUserVo;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * <p>
@@ -39,7 +34,7 @@ public interface UserService extends IService<User> {
      * @param loginUserDto
      * @return
      */
-    Object login(LoginUserDto loginUserDto);
+    Object login(LoginUserVo loginUserDto);
 
 
 }

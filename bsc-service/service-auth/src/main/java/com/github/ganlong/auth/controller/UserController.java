@@ -2,18 +2,12 @@ package com.github.ganlong.auth.controller;
 
 
 import com.github.ganlong.auth.service.UserService;
-import com.github.ganlong.model.auth.User;
-import com.github.ganlong.model.dto.auth.LoginUserDto;
-import me.zhyd.oauth.model.AuthCallback;
+import com.github.ganlong.vo.auth.LoginUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * <p>
@@ -31,7 +25,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public Object login(LoginUserDto loginUserDto){
+    public Object login(LoginUserVo loginUserDto){
         return userService.login(loginUserDto);
     }
 

@@ -1,4 +1,4 @@
-package com.github.ganlong.model.dto.auth;
+package com.github.ganlong.vo.auth;
 
 import com.github.ganlong.model.auth.User;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * @Author KnockingFarmers
  * @Date 2022/11/21 15:50
  * @PackageName:com.github.ganlong.model.dto.auth
- * @ClassName: LoginUserDto
+ * @ClassName: LoginUserVo
  * @Description: TODO
  * @Version 1.0
  */
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginUserDto extends User {
+public class LoginUserVo extends User {
 
    private String token;
 }

@@ -3,17 +3,11 @@ package com.github.ganlong.auth.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.ganlong.auth.mapper.UserMapper;
 import com.github.ganlong.auth.service.UserService;
-import com.github.ganlong.commons.config.JwtInfo;
 import com.github.ganlong.commons.uitl.JwtTokenUtil;
 import com.github.ganlong.commons.uitl.RedisUtil;
 import com.github.ganlong.model.auth.Role;
 import com.github.ganlong.model.auth.User;
-import com.github.ganlong.model.dto.auth.LoginUserDto;
-import me.zhyd.oauth.config.AuthConfig;
-import me.zhyd.oauth.model.AuthCallback;
-import me.zhyd.oauth.request.AuthRequest;
-import me.zhyd.oauth.request.AuthWeChatEnterpriseQrcodeRequest;
-import me.zhyd.oauth.utils.AuthStateUtils;
+import com.github.ganlong.vo.auth.LoginUserVo;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,10 +20,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -80,7 +71,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public Object login(LoginUserDto loginUserDto) {
+    public Object login(LoginUserVo loginUserDto) {
         //使用security框架自带的验证token生成器  也可以自定义。
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(

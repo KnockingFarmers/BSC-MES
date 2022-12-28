@@ -1,6 +1,7 @@
 package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.ganlong.commons.api.ApiResult;
 import com.github.ganlong.model.production.TestData;
 
 import java.util.List;
@@ -27,5 +28,5 @@ public interface TestDataService extends IService<TestData> {
      * @param testData 数据对象
      * @return
      */
-    Integer addTestData(TestData testData);
+    ApiResult addTestData(TestData testData);
 }

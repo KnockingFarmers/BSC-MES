@@ -1,6 +1,7 @@
 package com.github.ganlong.production.controller;
 
 
+import com.github.ganlong.commons.api.ApiResult;
 import com.github.ganlong.commons.core.custom.validator.common.UpdateGroup;
 import com.github.ganlong.model.production.TestData;
 import com.github.ganlong.production.service.TestDataService;
@@ -35,7 +36,7 @@ public class TestDataController {
 
 
     @PostMapping("/add")
-    public Integer addTestData(@Validated TestData testData){
+    public ApiResult addTestData(@Validated TestData testData){
         return testDataService.addTestData(testData);
     }
 

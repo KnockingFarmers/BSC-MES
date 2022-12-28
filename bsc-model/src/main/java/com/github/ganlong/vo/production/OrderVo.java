@@ -1,4 +1,4 @@
-package com.github.ganlong.model.dto.production;
+package com.github.ganlong.vo.production;
 
 import com.github.ganlong.model.production.Order;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * @Author KnockingFarmers
  * @Date 2022/12/20 9:49
  * @PackageName:com.github.ganlong.model.dto.production
- * @ClassName: OrderDto
+ * @ClassName: OrderVo
  * @Description: TODO
  * @Version 1.0
  */
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDto extends Order {
+public class OrderVo extends Order {
 
     private String orderProductIdStr;
 

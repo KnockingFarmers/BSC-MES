@@ -84,6 +84,12 @@ public class ApiResult<T>{
         this.data=data;
     }
 
+    public void notFountError(T data,String message){
+        this.message = message;
+        this.errorCode = ApiStatusCodeEnum.NOT_FOUNT.getStatus();
+        this.data=data;
+    }
+
     public void loginError(T data){
         this.message = ApiMessageEnum.LOGIN_ERROR.getMessage();
         this.errorCode = ApiStatusCodeEnum.PARAM_ERROR.getStatus();
@@ -93,6 +99,12 @@ public class ApiResult<T>{
     public void notLoginError(T data){
         this.message = ApiMessageEnum.NOT_LOGIN.getMessage();
         this.errorCode = ApiStatusCodeEnum.NOT_LOGIN.getStatus();
+        this.data=data;
+    }
+
+    public void paramsError(T data,String message){
+        this.message = message;
+        this.errorCode = ApiStatusCodeEnum.PARAM_ERROR.getStatus();
         this.data=data;
     }
 
