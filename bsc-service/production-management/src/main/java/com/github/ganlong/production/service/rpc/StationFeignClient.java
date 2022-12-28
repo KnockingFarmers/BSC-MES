@@ -4,6 +4,7 @@ import com.github.ganlong.production.entity.Station;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Author KnockingFarmers
@@ -23,7 +24,7 @@ public interface StationFeignClient {
      * @return
      */
     @GetMapping("/station/getById")
-    Station stationIsEmptyById(Long stationId);
+    Station stationIsEmptyById(@RequestParam("stationId") Long stationId);
 
 
     /**
@@ -33,5 +34,6 @@ public interface StationFeignClient {
      * @return
      */
     @GetMapping("/station/getStationHowBigById")
-    Integer getStationHowBigById(Long newStationId,Long oldStationId);
+    Integer getStationHowBigById(@RequestParam("newStationId") Long newStationId,
+                                 @RequestParam("oldStationId") Long oldStationId);
 }
