@@ -1,6 +1,7 @@
 package com.github.ganlong.production.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.github.ganlong.commons.api.ApiResult;
 import com.github.ganlong.model.production.Product;
 
 /**
@@ -26,7 +27,7 @@ public interface ProductService extends IService<Product> {
      * @param modifiedStation 修改的站
      * @return
      */
-    Integer modifiedProductStation(Long id,Integer modifiedStation);
+    ApiResult modifiedProductStation(Long id, Long modifiedStation);
 
 
 }

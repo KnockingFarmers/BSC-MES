@@ -27,7 +27,9 @@ public enum ApiStatusCodeEnum {
 
     AUTH_ERROR(406),
 
-    NOT_LOGIN(401);
+    NOT_LOGIN(401),
+
+    NO_THING(666);
 
     private int status;
 

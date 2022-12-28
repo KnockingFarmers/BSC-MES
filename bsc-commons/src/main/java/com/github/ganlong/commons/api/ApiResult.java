@@ -108,4 +108,10 @@ public class ApiResult<T>{
         this.data=data;
     }
 
+    public void nothing(T data,String message){
+        this.message = message;
+        this.errorCode = ApiStatusCodeEnum.NO_THING.getStatus();
+        this.data=data;
+    }
+
 }
